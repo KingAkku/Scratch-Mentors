@@ -34,7 +34,7 @@ function App() {
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight">
-                System <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Ready?</span>
+                SYSTEM READY?
               </h2>
               <button 
                 onClick={openRegister}
