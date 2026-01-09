@@ -38,9 +38,9 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
             <span className="animate-pulse">▶</span> SYSTEM_STATUS: [COMPILING_CREATIVITY]
           </p>
           <div className="font-mono text-purple-200 text-xs md:text-sm space-y-1 opacity-80">
-            <p>> INPUT: YOUR_BRAIN</p>
-            <p>> TARGET: SCRATCH_V3.0</p>
-            <p>> OUTPUT: <span className="text-white font-bold bg-amber-500/20 px-1">₹{EVENT_DETAILS.prizePool} + INTERNSHIP</span></p>
+            <p>&gt; INPUT: YOUR_BRAIN</p>
+            <p>&gt; TARGET: SCRATCH_V3.0</p>
+            <p>&gt; OUTPUT: <span className="text-white font-bold bg-amber-500/20 px-1">₹{EVENT_DETAILS.prizePool} + INTERNSHIP</span></p>
           </div>
         </div>
 

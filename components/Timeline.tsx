@@ -55,7 +55,7 @@ export const Timeline: React.FC = () => {
                     {item.title}
                   </h3>
                   <p className="text-gray-400 font-mono text-sm">
-                    > {item.desc}
+                    &gt; {item.desc}
                   </p>
                 </div>
               </div>
