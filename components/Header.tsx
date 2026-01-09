@@ -25,17 +25,17 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-purple-900/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'
+        isScrolled ? 'bg-[#0f002b]/90 backdrop-blur-md py-3 shadow-lg border-b border-purple-500/20' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* Logo Box: Amber on Purple (Initial), Purple on Amber (Scrolled) - Inverted from before */}
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transform -rotate-3 transition-colors ${isScrolled ? 'bg-[#1e0b36]' : 'bg-amber-400'}`}>
-             <span className={`font-bold text-xl ${isScrolled ? 'text-amber-400' : 'text-purple-900'}`}>L</span>
+          {/* Logo Box: Vibrant Purple bg */}
+          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transform -rotate-3 transition-colors bg-[#7c3aed]`}>
+             <span className="font-bold text-xl text-white">L</span>
           </div>
           <span className="text-2xl font-bold tracking-tight text-white transition-colors">
-            Logic<span className="text-amber-400">Box</span>
+            Logic<span className="text-cyan-400">Box</span>
           </span>
         </div>
 
@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="font-medium transition-colors text-white/80 hover:text-amber-400"
+              className="font-medium transition-colors text-white/80 hover:text-cyan-400"
             >
               {link.name}
             </a>
@@ -53,7 +53,6 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
           <Button 
             onClick={onRegister} 
             variant={isScrolled ? 'primary' : 'outline'} 
-            className={!isScrolled ? 'border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-purple-900' : ''}
             size="sm"
           >
             Register Now
@@ -62,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-white hover:text-amber-400"
+          className="md:hidden text-white hover:text-cyan-400"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -71,13 +70,13 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-purple-900 border-t border-purple-800 p-4 md:hidden flex flex-col gap-4 shadow-xl">
+        <div className="absolute top-full left-0 right-0 bg-[#1e0b36] border-t border-purple-800 p-4 md:hidden flex flex-col gap-4 shadow-xl">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-white/90 font-medium py-2 hover:text-amber-400"
+              className="text-white/90 font-medium py-2 hover:text-cyan-400"
             >
               {link.name}
             </a>

@@ -15,7 +15,7 @@
       }
       body {
         font-family: 'Space Grotesk', sans-serif;
-        background-color: #0f0518; /* Deepest Purple */
+        background-color: #050014; /* Deep Galactic Purple */
         cursor: none; /* Hide default cursor */
         overflow-x: hidden;
       }
@@ -33,18 +33,18 @@
         left: 0;
         width: var(--cursor-size);
         height: var(--cursor-size);
-        background-color: #fbbf24; /* Amber */
+        background-color: #22d3ee; /* Neon Cyan */
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
         transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s;
-        mix-blend-mode: exclusion; /* Changed to exclusion for better interaction with white text */
+        mix-blend-mode: exclusion;
       }
       
-      /* Circuit Background Pattern */
+      /* Circuit Background Pattern - Updated to Cyan/Purple */
       .circuit-pattern {
-        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h80v80h-80z' fill='none' stroke='%23fbbf24' stroke-width='0.5' stroke-opacity='0.3'/%3E%3Cpath d='M30 30h40v40h-40z' fill='none' stroke='%23fbbf24' stroke-width='0.5' stroke-opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23fbbf24' fill-opacity='0.2'/%3E%3Cpath d='M10 50h30M60 50h30M50 10v30M50 60v30' stroke='%23fbbf24' stroke-width='0.5' stroke-opacity='0.3'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h80v80h-80z' fill='none' stroke='%2322d3ee' stroke-width='0.5' stroke-opacity='0.2'/%3E%3Cpath d='M30 30h40v40h-40z' fill='none' stroke='%238b5cf6' stroke-width='0.5' stroke-opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%2322d3ee' fill-opacity='0.1'/%3E%3Cpath d='M10 50h30M60 50h30M50 10v30M50 60v30' stroke='%238b5cf6' stroke-width='0.5' stroke-opacity='0.2'/%3E%3C/svg%3E");
         mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 20%);
         -webkit-mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 25%);
       }
@@ -61,9 +61,9 @@
       /* Generic Cube Face Builder */
       .face {
         position: absolute;
-        background: rgba(255, 255, 255, 0.05); /* Very subtle glass */
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 15px rgba(251, 191, 36, 0.1); /* Amber glow */
+        background: rgba(124, 58, 237, 0.05); /* Violet Glass */
+        border: 1px solid rgba(139, 92, 246, 0.3); /* Light Purple border */
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.15); /* Cyan glow */
         backdrop-filter: blur(2px);
         backface-visibility: visible;
       }
@@ -90,7 +90,7 @@
 
       /* New Glow Effect for Anamorphic Text */
       .text-shadow-glow {
-        text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(251, 191, 36, 0.4);
+        text-shadow: 0 0 40px rgba(124, 58, 237, 0.8), 0 0 80px rgba(34, 211, 238, 0.4);
       }
     </style>
   <script type="importmap">
@@ -104,7 +104,7 @@
 }
 </script>
 </head>
-  <body class="bg-[#0f0518] text-white antialiased selection:bg-amber-400 selection:text-purple-900">
+  <body class="bg-[#050014] text-white antialiased selection:bg-cyan-400 selection:text-purple-900">
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
   </body>

@@ -15,9 +15,12 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = "inline-flex items-center justify-center font-bold transition-all duration-300 rounded-full focus:outline-none focus:ring-4 focus:ring-offset-2";
   
   const variants = {
-    primary: "bg-amber-400 text-purple-900 hover:bg-amber-300 hover:scale-105 shadow-lg shadow-amber-400/30 focus:ring-amber-400",
-    secondary: "bg-white text-purple-900 hover:bg-gray-100 shadow-md focus:ring-white",
-    outline: "border-2 border-white/30 text-white hover:bg-white/10 hover:border-white focus:ring-purple-400 backdrop-blur-sm",
+    // Royal Purple Primary
+    primary: "bg-[#7c3aed] text-white hover:bg-[#6d28d9] hover:scale-105 shadow-lg shadow-purple-500/30 focus:ring-purple-500",
+    // Clean White Secondary
+    secondary: "bg-white text-[#4c1d95] hover:bg-gray-100 shadow-md focus:ring-white",
+    // Cyan Outline
+    outline: "border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 hover:border-cyan-300 hover:text-cyan-300 focus:ring-cyan-400 backdrop-blur-sm",
   };
 
   const sizes = {
