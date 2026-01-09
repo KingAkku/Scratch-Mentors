@@ -76,9 +76,7 @@ export const Prizes: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
             The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Payload</span>
           </h2>
-          <div className="mt-4 flex justify-center text-white/20">
-             <Binary size={24} />
-          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>
         </div>
 
         {/* 3D Anamorphic Scene - Scaled down heavily on mobile to keep fragments in view */}

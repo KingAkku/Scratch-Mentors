@@ -127,6 +127,7 @@ export const Timeline: React.FC = () => {
           <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter">
             Execution <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Plan</span>
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>
         </div>
 
         <div className="relative">
