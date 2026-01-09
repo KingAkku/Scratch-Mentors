@@ -8,7 +8,7 @@ const JUDGES = [
     role: "CEO",
     company: "Logicbox Innovation Pvt Ltd",
     tags: ["Leadership", "Innovation"],
-    image: "Nithin.jpeg",
+    image: "Nithin.svg",
     linkedin: "https://www.linkedin.com/in/nithin-g?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
@@ -17,7 +17,7 @@ const JUDGES = [
     role: "Serial Entrepreneur",
     company: "Startup Coach",
     tags: ["Entrepreneurship", "Strategy"],
-    image: "Ajay.jpeg",
+    image: "Ajay.svg",
     linkedin: "https://www.linkedin.com/in/ajay-basil-varghese-042301158?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
@@ -26,7 +26,7 @@ const JUDGES = [
     role: "Post Doctoral Researcher",
     company: "Washington University",
     tags: ["Research", "Academia"],
-    image: "Ganesh.jpeg",
+    image: "Ganesh.svg",
     linkedin: "https://www.linkedin.com/in/ganesh-malayath-phd-8a456541?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   }
 ];
