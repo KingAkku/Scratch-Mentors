@@ -125,7 +125,7 @@ export const Timeline: React.FC = () => {
             SYSTEM_LOG // V.2.0
           </span>
           <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter">
-            Execution <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-400">Plan</span>
+            Execution <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Plan</span>
           </h2>
         </div>
 

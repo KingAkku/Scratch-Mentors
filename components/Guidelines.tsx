@@ -53,7 +53,7 @@ export const Guidelines: React.FC = () => {
           <div className="reveal-on-scroll">
             <p className="font-mono text-cyan-400 text-sm mb-2">03 // PROTOCOLS</p>
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
-              System <br /> Rules
+              System <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Rules</span>
             </h2>
             
             <div className="font-mono text-sm text-gray-400 border-l-2 border-[#7c3aed] pl-4 py-2 bg-purple-900/10">

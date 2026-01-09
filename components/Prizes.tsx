@@ -74,7 +74,7 @@ export const Prizes: React.FC = () => {
         >
           <p className="font-mono text-cyan-400 text-xs md:text-sm mb-2">01 // REWARDS_MODULE</p>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
-            The Payload
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Payload</span>
           </h2>
           <div className="mt-4 flex justify-center text-white/20">
              <Binary size={24} />
