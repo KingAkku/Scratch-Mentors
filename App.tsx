@@ -40,7 +40,7 @@ function App() {
                 onClick={openRegister}
                 className="bg-black text-white px-12 py-5 text-xl font-mono font-bold hover:bg-white hover:text-black hover:scale-105 transition-all shadow-2xl uppercase border-2 border-transparent hover:border-black"
               >
-                [ Execute_Registration ]
+                [Execute_Registration]
               </button>
             </div>
           </section>
