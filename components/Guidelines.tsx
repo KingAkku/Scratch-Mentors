@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Check, ShieldCheck, UserPlus, Code2, AlertTriangle } from 'lucide-react';
 
 export const Guidelines: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (sectionRef.current) {
+      const elements = sectionRef.current.querySelectorAll('.reveal-on-scroll');
+      elements.forEach((el) => observer.observe(el));
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const rules = [
     {
       title: "ACCESS_LEVEL: OPEN",
@@ -26,7 +46,7 @@ export const Guidelines: React.FC = () => {
   ];
 
   return (
-    <section id="guidelines" className="py-12 bg-[#050014] border-t border-white/5">
+    <section id="guidelines" ref={sectionRef} className="py-12 bg-[#050014] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           

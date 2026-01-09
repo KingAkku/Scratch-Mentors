@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Linkedin, ExternalLink } from 'lucide-react';
 
 const JUDGES = [
@@ -100,8 +100,28 @@ const JudgeCard = ({ judge }: { judge: typeof JUDGES[0] }) => {
 };
 
 export const Judges: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (sectionRef.current) {
+      const elements = sectionRef.current.querySelectorAll('.reveal-on-scroll');
+      elements.forEach((el) => observer.observe(el));
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-24 bg-[#050014] relative">
+    <section ref={sectionRef} className="py-24 bg-[#050014] relative border-t border-white/5">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none"></div>
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
