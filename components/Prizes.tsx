@@ -48,6 +48,9 @@ export const Prizes: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Calculate label opacity: starts appearing at 80% progress, fully visible at 100%
+  const labelOpacity = Math.max(0, (progress - 0.8) * 5);
+
   return (
     <section id="prizes" ref={containerRef} className="relative h-[200vh] bg-[#050014] z-20">
       
@@ -80,6 +83,20 @@ export const Prizes: React.FC = () => {
 
         {/* 3D Anamorphic Scene */}
         <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center" style={{ perspective: '1000px' }}>
+          
+          {/* New "PRIZEPOOL OF" Label */}
+          <div 
+             className="absolute z-30 pointer-events-none transition-transform duration-100 ease-out"
+             style={{ 
+               opacity: labelOpacity,
+               transform: `translateY(${-120 + (1 - labelOpacity) * 30}px) scale(${0.8 + labelOpacity * 0.2})` 
+             }}
+          >
+             <h3 className="font-mono text-cyan-400 text-lg md:text-xl font-bold tracking-[0.4em] text-center uppercase drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]">
+               PRIZEPOOL OF
+             </h3>
+          </div>
+
           {FRAGMENTS.map((item, idx) => {
             const ease = 1 - Math.pow(1 - progress, 3);
             
