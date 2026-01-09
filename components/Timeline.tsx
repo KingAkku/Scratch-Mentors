@@ -100,7 +100,7 @@ export const Timeline: React.FC = () => {
   }, []);
 
   return (
-    <section id="schedule" className="py-32 bg-[#0a0314] relative overflow-hidden">
+    <section id="schedule" className="pt-24 pb-8 bg-[#0a0314] relative overflow-hidden">
       
       {/* Optimized CSS for Transform Animations */}
       <style>{`

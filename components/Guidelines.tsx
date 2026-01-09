@@ -26,7 +26,7 @@ export const Guidelines: React.FC = () => {
   ];
 
   return (
-    <section id="guidelines" className="py-24 bg-[#050014] border-t border-white/5">
+    <section id="guidelines" className="py-12 bg-[#050014] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
