@@ -7,46 +7,103 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --cursor-size: 20px;
+        --cursor-hover-size: 80px;
+      }
       body {
-        font-family: 'Outfit', sans-serif;
-      }
-      h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Grotesk', sans-serif;
+        background-color: #0f0518; /* Deepest Purple */
+        cursor: none; /* Hide default cursor */
+        overflow-x: hidden;
       }
-      .glass-panel {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      }
-      .hero-pattern {
-        background-color: #4c1d95; /* Royal Purple 900 */
-        background-image: radial-gradient(circle at 15% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 25%),
-                          radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.2) 0%, transparent 25%);
-      }
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      .animate-float-delayed {
-        animation: float 8s ease-in-out infinite;
-        animation-delay: 2s;
-      }
-      .text-glow {
-        text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+      .font-mono {
+        font-family: 'Space Mono', monospace;
       }
       
-      /* Animation classes */
+      /* Custom Cursor */
+      .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--cursor-size);
+        height: var(--cursor-size);
+        background-color: #fbbf24; /* Amber */
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, background-color 0.3s;
+        mix-blend-mode: difference;
+      }
+      
+      /* Circuit Background Pattern */
+      .circuit-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h80v80h-80z' fill='none' stroke='%23fbbf24' stroke-width='0.5' stroke-opacity='0.3'/%3E%3Cpath d='M30 30h40v40h-40z' fill='none' stroke='%23fbbf24' stroke-width='0.5' stroke-opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23fbbf24' fill-opacity='0.2'/%3E%3Cpath d='M10 50h30M60 50h30M50 10v30M50 60v30' stroke='%23fbbf24' stroke-width='0.5' stroke-opacity='0.3'/%3E%3C/svg%3E");
+        mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 20%);
+        -webkit-mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 25%);
+      }
+
+      /* 3D Cube CSS */
+      .cube-scene {
+        perspective: 1000px;
+      }
+      .cube {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotateCube 15s infinite linear;
+      }
+      .cube-face {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(251, 191, 36, 0.3);
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        color: #fbbf24;
+      }
+      .face-front  { transform: rotateY(0deg) translateZ(100px); }
+      .face-back   { transform: rotateY(180deg) translateZ(100px); }
+      .face-right  { transform: rotateY(90deg) translateZ(100px); }
+      .face-left   { transform: rotateY(-90deg) translateZ(100px); }
+      .face-top    { transform: rotateX(90deg) translateZ(100px); }
+      .face-bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+      @keyframes rotateCube {
+        0% { transform: rotateX(-15deg) rotateY(0deg); }
+        100% { transform: rotateX(-15deg) rotateY(360deg); }
+      }
+
+      /* Massive Typography */
+      .mega-text {
+        font-size: 22vw;
+        line-height: 0.8;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.02);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        pointer-events: none;
+        white-space: nowrap;
+        user-select: none;
+      }
+
+      /* Animation Utilities */
       .reveal-on-scroll {
         opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        transform: translateY(20px);
+        transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
       }
       .reveal-on-scroll.is-visible {
         opacity: 1;
@@ -64,7 +121,7 @@
 }
 </script>
 </head>
-  <body class="bg-gray-50 text-gray-900 antialiased selection:bg-amber-400 selection:text-purple-900">
+  <body class="bg-[#0f0518] text-white antialiased selection:bg-amber-400 selection:text-purple-900">
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
   </body>

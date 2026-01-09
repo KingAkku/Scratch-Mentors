@@ -1,95 +1,80 @@
 import React from 'react';
-import { Trophy, Briefcase, Star, Zap, Crown, Gift } from 'lucide-react';
+import { Trophy, Briefcase, ChevronRight, Binary } from 'lucide-react';
 import { EVENT_DETAILS } from '../constants';
 
 export const Prizes: React.FC = () => {
   return (
-    <section id="prizes" className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-[40%] h-full bg-amber-50 skew-x-12 translate-x-20 z-0"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-50 rounded-full blur-3xl opacity-50 z-0"></div>
-
-      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black text-purple-900 mb-6 tracking-tight">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Spoils</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto font-light">
-            We don't just offer cash. We offer a career launchpad.
-          </p>
+    <section id="prizes" className="py-24 bg-[#0f0518] relative z-10 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        
+        <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-6 reveal-on-scroll">
+          <div>
+             <p className="font-mono text-amber-400 text-sm mb-2">01 // REWARDS_MODULE</p>
+             <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
+               The <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-purple-500">Payload</span>
+             </h2>
+          </div>
+          <Binary className="text-white/10 hidden md:block" size={48} />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-4 h-auto md:h-[600px]">
           
-          {/* Grand Prize Card (Larger) */}
-          <div className="lg:col-span-7 bg-purple-900 rounded-[2.5rem] p-8 md:p-14 text-white relative overflow-hidden group shadow-2xl hover:shadow-purple-900/40 transition-all duration-500">
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500 transform group-hover:scale-110">
-              <Trophy size={300} />
-            </div>
-            
-            <div className="relative z-10 h-full flex flex-col justify-between">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-amber-400 text-purple-900 font-bold px-4 py-2 rounded-full text-sm mb-8">
-                  <Crown size={16} /> GRAND PRIZE POOL
+          {/* Main Prize Block - Span 2 Cols, 2 Rows */}
+          <div className="md:col-span-2 md:row-span-2 group relative bg-white/5 border border-white/10 hover:border-amber-400/50 transition-all duration-500 overflow-hidden flex flex-col justify-between p-8 md:p-12 reveal-on-scroll">
+             <div className="absolute top-0 right-0 p-4 opacity-20">
+                <Trophy size={180} strokeWidth={1} />
+             </div>
+             
+             <div className="relative z-10">
+                <div className="font-mono text-xs border border-white/20 inline-block px-2 py-1 mb-6 text-white/60">
+                  PRIZE_POOL_TOTAL
                 </div>
-                <h3 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-200">
+                <h3 className="text-7xl md:text-9xl font-black text-white tracking-tighter mb-2">
                   {EVENT_DETAILS.prizePool}
                 </h3>
-                <p className="text-purple-200 text-xl font-medium mb-10 max-w-md">
-                  Distributed among the top creative minds. Cash rewards, swags, and exclusive LogicBox merchandise.
+                <p className="font-mono text-amber-400/80 text-sm md:text-base max-w-md">
+                   > ALLOCATION: TOP_PERFORMERS<br/>
+                   > DISTRIBUTION: CASH + TECH_STACK
                 </p>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-amber-400 rounded-lg text-purple-900"><Star size={20} /></div>
-                    <span className="font-bold text-lg">1st Place</span>
-                  </div>
-                  <p className="text-sm text-purple-200 pl-11">Max share of pool + Tech Bundle</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-gray-300 rounded-lg text-gray-800"><Gift size={20} /></div>
-                    <span className="font-bold text-lg">Runners Up</span>
-                  </div>
-                  <p className="text-sm text-purple-200 pl-11">Cash Prizes + Swag Kits</p>
-                </div>
-              </div>
-            </div>
+             </div>
+
+             <div className="relative z-10 grid grid-cols-2 gap-4 mt-8">
+               <div className="border-l-2 border-amber-400 pl-4">
+                 <p className="text-2xl font-bold text-white">1st</p>
+                 <p className="text-xs font-mono text-gray-400">MAX_SHARE</p>
+               </div>
+               <div className="border-l-2 border-gray-600 pl-4">
+                 <p className="text-2xl font-bold text-gray-300">Runners Up</p>
+                 <p className="text-xs font-mono text-gray-500">TIER_2_REWARDS</p>
+               </div>
+             </div>
+             
+             {/* Hover Glow Effect */}
+             <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
           </div>
 
-          {/* Internship Card (Side) */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-amber-400 to-orange-400 rounded-[2.5rem] p-8 md:p-14 text-purple-900 relative overflow-hidden group shadow-2xl hover:shadow-amber-400/40 transition-all duration-500">
-            <div className="absolute -bottom-10 -right-10 text-white opacity-20 transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
-              <Briefcase size={200} />
-            </div>
-            
-            <div className="relative z-10 h-full flex flex-col justify-between">
-              <div>
-                <div className="inline-block bg-white text-purple-900 font-bold px-4 py-2 rounded-full text-sm mb-8 shadow-sm">
-                  CAREER ACCELERATOR
-                </div>
-                <h3 className="text-4xl md:text-5xl font-black leading-tight mb-6">
-                  3-Month Internship
-                </h3>
-                <p className="font-semibold text-lg opacity-90 mb-8 leading-relaxed">
-                  Direct entry into <span className="font-black text-white bg-purple-900 px-2 py-0.5 rounded">LogicBox</span>. 
-                  Skip the resume queue. Prove your skills and get hired.
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                 <div className="flex items-center gap-3 font-bold">
-                    <div className="w-8 h-8 rounded-full bg-purple-900 text-white flex items-center justify-center"><Zap size={16} /></div>
-                    <span>Mentorship from Seniors</span>
-                 </div>
-                 <div className="flex items-center gap-3 font-bold">
-                    <div className="w-8 h-8 rounded-full bg-purple-900 text-white flex items-center justify-center"><Briefcase size={16} /></div>
-                    <span>Real-world Projects</span>
-                 </div>
-              </div>
-            </div>
+          {/* Internship Block */}
+          <div className="bg-amber-400 text-black p-8 flex flex-col justify-center relative overflow-hidden group hover:bg-amber-300 transition-colors reveal-on-scroll" style={{transitionDelay: '100ms'}}>
+             <div className="absolute -right-4 -bottom-4 opacity-10 transform -rotate-12 group-hover:scale-110 transition-transform duration-500">
+               <Briefcase size={120} />
+             </div>
+             <div className="font-mono text-xs font-bold mb-2 uppercase border-b border-black/20 pb-2 inline-block">Career_Mode</div>
+             <h3 className="text-3xl font-bold leading-none mb-2">Internship</h3>
+             <p className="font-mono text-sm opacity-80">@LogicBox Studio</p>
+          </div>
+
+          {/* Secondary Info Block */}
+          <div className="bg-purple-900/20 border border-purple-500/30 p-8 flex flex-col justify-between group hover:bg-purple-900/30 transition-colors reveal-on-scroll" style={{transitionDelay: '200ms'}}>
+             <div className="flex justify-between items-start">
+               <div className="w-10 h-10 rounded-full border border-purple-400 flex items-center justify-center">
+                 <ChevronRight className="text-purple-400" />
+               </div>
+               <span className="font-mono text-xs text-purple-300">FEB_21</span>
+             </div>
+             <div>
+               <p className="text-lg font-bold text-white mb-1">Grand Finale</p>
+               <p className="text-xs text-gray-400 font-mono">LIVE_STREAM_EVENT</p>
+             </div>
           </div>
 
         </div>

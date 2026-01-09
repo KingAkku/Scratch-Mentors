@@ -6,6 +6,7 @@ import { Timeline } from './components/Timeline';
 import { Guidelines } from './components/Guidelines';
 import { Footer } from './components/Footer';
 import { RegisterModal } from './components/RegisterModal';
+import { CustomCursor } from './components/CustomCursor';
 
 function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -14,33 +15,35 @@ function App() {
   const closeRegister = () => setIsRegisterOpen(false);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header onRegister={openRegister} />
+    <div className="min-h-screen relative">
+      <CustomCursor />
       
-      <main>
-        <Hero onRegister={openRegister} />
-        <Prizes />
-        <Timeline />
-        <Guidelines />
+      <div className="relative z-10">
+        <Header onRegister={openRegister} />
         
-        {/* CTA Section before footer */}
-        <section className="py-20 bg-amber-400 text-purple-900 text-center px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Code?</h2>
-            <p className="text-xl font-medium mb-8">
-              Don't let this opportunity slide. The clock is ticking towards Feb 17.
-            </p>
-            <button 
-              onClick={openRegister}
-              className="bg-purple-900 text-white px-10 py-4 rounded-full text-xl font-bold hover:bg-purple-800 hover:scale-105 transition-all shadow-xl"
-            >
-              Start Your Registration
-            </button>
-          </div>
-        </section>
-      </main>
+        <main>
+          <Hero onRegister={openRegister} />
+          <Prizes />
+          <Timeline />
+          <Guidelines />
+          
+          {/* CTA Section */}
+          <section className="py-24 bg-amber-400 relative overflow-hidden text-center px-4 border-t border-black">
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-4xl md:text-6xl font-black text-black mb-6 uppercase tracking-tight">System Ready?</h2>
+              <button 
+                onClick={openRegister}
+                className="bg-black text-white px-12 py-5 text-xl font-mono font-bold hover:bg-gray-900 hover:scale-105 transition-all shadow-2xl uppercase border-2 border-transparent hover:border-white"
+              >
+                [ Execute_Registration ]
+              </button>
+            </div>
+          </section>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
       
       <RegisterModal isOpen={isRegisterOpen} onClose={closeRegister} />
     </div>

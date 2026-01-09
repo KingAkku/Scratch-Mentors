@@ -27,48 +27,41 @@ export const Timeline: React.FC = () => {
   }, []);
 
   return (
-    <section id="schedule" className="py-24 bg-gray-50 overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 reveal-on-scroll">
-          <h2 className="text-4xl md:text-5xl font-black text-purple-900 mb-4">Event Timeline</h2>
-          <p className="text-xl text-gray-600">Mark your calendars. Don't miss the deadline.</p>
+    <section id="schedule" className="py-24 bg-[#0a0310] relative border-t border-white/5">
+      <div className="max-w-4xl mx-auto px-4 md:px-6">
+        <div className="text-left mb-16 reveal-on-scroll">
+          <p className="font-mono text-amber-400 text-sm mb-2">02 // EXECUTION_LOG</p>
+          <h2 className="text-4xl md:text-5xl font-black text-white">Timeline</h2>
         </div>
 
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 rounded-full hidden md:block"></div>
+        <div className="space-y-0 relative border-l border-white/10 ml-4 md:ml-0">
+          
+          {TIMELINE.map((item, index) => (
+            <div 
+              key={index} 
+              className="reveal-on-scroll relative pl-12 pb-12 last:pb-0"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              {/* Connector Node */}
+              <div className={`absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full ${index === 1 ? 'bg-amber-400 shadow-[0_0_10px_#fbbf24]' : 'bg-gray-700 border border-gray-500'}`}></div>
 
-          <div className="space-y-12">
-            {TIMELINE.map((item, index) => (
-              <div 
-                key={index} 
-                className={`reveal-on-scroll flex flex-col md:flex-row items-center justify-between gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
+              <div className="flex flex-col md:flex-row gap-4 md:items-start group">
+                <div className="font-mono text-amber-400/80 w-32 shrink-0 text-sm pt-1">
+                  [{item.date}]
+                </div>
                 
-                {/* Content Side */}
-                <div className="w-full md:w-5/12 text-center md:text-left">
-                  <div className={`p-6 rounded-2xl bg-white shadow-lg border-b-4 ${index % 2 === 0 ? 'border-amber-400' : 'border-purple-600'} hover:-translate-y-1 transition-transform duration-300`}>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
-                  </div>
+                <div className="bg-white/5 border border-white/10 p-6 w-full hover:border-amber-400/30 hover:bg-white/10 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 font-mono text-sm">
+                    > {item.desc}
+                  </p>
                 </div>
-
-                {/* Center Dot */}
-                <div className="relative flex items-center justify-center w-12 h-12 shrink-0">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center border-4 border-white shadow-md z-10 ${item.date === "Feb 17" ? "bg-amber-400 text-purple-900 animate-pulse" : "bg-purple-900 text-white"}`}>
-                    <div className="w-3 h-3 rounded-full bg-current"></div>
-                  </div>
-                </div>
-
-                {/* Date Side */}
-                <div className={`w-full md:w-5/12 text-center ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <span className="text-4xl font-black text-gray-300">{item.date}</span>
-                </div>
-
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+
         </div>
       </div>
     </section>
