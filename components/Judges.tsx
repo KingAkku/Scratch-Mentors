@@ -1,36 +1,39 @@
 import React from 'react';
-import { Linkedin, Github, Code2 } from 'lucide-react';
+import { Linkedin, ExternalLink } from 'lucide-react';
 
 const JUDGES = [
   {
     id: 1,
-    name: "Dr. Sarah Pentest",
-    role: "Lead Logic Architect",
-    company: "LogicBox",
-    tags: ["Algorithms", "Optimization"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+    name: "Dr. Nithin G",
+    role: "CEO",
+    company: "Logicbox Innovation Pvt Ltd",
+    tags: ["Leadership", "Innovation"],
+    image: "Nithin.jpeg",
+    linkedin: "https://www.linkedin.com/in/nithin-g?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
     id: 2,
-    name: "Marcus 'Null' Chen",
-    role: "Creative Director",
-    company: "PixelForge",
-    tags: ["Game Design", "UX/UI"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+    name: "Mr. Ajay Basil Varghese",
+    role: "Serial Entrepreneur",
+    company: "Startup Coach",
+    tags: ["Entrepreneurship", "Strategy"],
+    image: "Ajay.jpeg",
+    linkedin: "https://www.linkedin.com/in/ajay-basil-varghese-042301158?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   },
   {
     id: 3,
-    name: "Elena Void",
-    role: "Scratch Educator",
-    company: "CodeAcademy",
-    tags: ["Education", "Creativity"],
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
+    name: "Dr. Ganesh Malayath",
+    role: "Post Doctoral Researcher",
+    company: "Washington University",
+    tags: ["Research", "Academia"],
+    image: "Ganesh.jpeg",
+    linkedin: "https://www.linkedin.com/in/ganesh-malayath-phd-8a456541?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
   }
 ];
 
 const JudgeCard = ({ judge }: { judge: typeof JUDGES[0] }) => {
   return (
-    <div className="group relative w-full max-w-sm mx-auto">
+    <div className="group relative w-full max-w-sm mx-auto h-full">
       {/* Background Glow (Hover only) */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-xl opacity-0 group-hover:opacity-75 blur transition duration-500"></div>
       
@@ -63,9 +66,9 @@ const JudgeCard = ({ judge }: { judge: typeof JUDGES[0] }) => {
 
         {/* Info Section */}
         <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors">{judge.name}</h3>
-          <p className="text-purple-400 font-mono text-sm">{judge.role}</p>
-          <p className="text-gray-500 text-xs mt-1">@ {judge.company}</p>
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors leading-tight">{judge.name}</h3>
+          <p className="text-purple-400 font-mono text-xs uppercase tracking-wider mb-1 font-bold">{judge.role}</p>
+          <p className="text-gray-500 text-xs px-2">{judge.company}</p>
         </div>
 
         {/* Tags */}
@@ -78,10 +81,17 @@ const JudgeCard = ({ judge }: { judge: typeof JUDGES[0] }) => {
         </div>
 
         {/* Footer / Social Placeholder */}
-        <div className="mt-auto pt-4 border-t border-white/5 flex justify-center gap-4 text-gray-400">
-           <a href="#" className="hover:text-white transition-colors"><Linkedin size={18} /></a>
-           <a href="#" className="hover:text-white transition-colors"><Github size={18} /></a>
-           <a href="#" className="hover:text-white transition-colors"><Code2 size={18} /></a>
+        <div className="mt-auto pt-4 border-t border-white/5 flex justify-center text-gray-400">
+           <a 
+             href={judge.linkedin} 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="group/link flex items-center gap-2 px-4 py-2 hover:bg-white/5 rounded-full transition-all hover:text-cyan-400"
+           >
+             <Linkedin size={16} />
+             <span className="text-xs font-mono font-bold tracking-wider">CONNECT</span>
+             <ExternalLink size={12} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+           </a>
         </div>
 
       </div>
@@ -110,9 +120,9 @@ export const Judges: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
            {JUDGES.map((judge, idx) => (
-             <div key={judge.id} className="reveal-on-scroll" style={{ transitionDelay: `${idx * 150}ms` }}>
+             <div key={judge.id} className="reveal-on-scroll h-full" style={{ transitionDelay: `${idx * 150}ms` }}>
                <JudgeCard judge={judge} />
              </div>
            ))}

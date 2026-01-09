@@ -53,28 +53,61 @@ const GlassCat = () => {
 
 export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center bg-transparent">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-between py-24 md:py-0 md:justify-center bg-transparent">
       
-      {/* 3D FLOATING LAYER */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 mix-blend-overlay opacity-80 pointer-events-none scale-75 md:scale-100">
+      {/* 3D FLOATING LAYER - Scaled down for mobile */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 mix-blend-overlay opacity-80 pointer-events-none scale-[0.6] md:scale-100">
         <GlassCat />
       </div>
 
-      {/* TYPOGRAPHY LAYER */}
-      <div className="relative z-10 flex flex-col items-center leading-[0.85] text-white select-none pointer-events-none md:pointer-events-auto">
-        <h1 className="font-serif text-[18vw] font-black tracking-[-0.08em] hover:text-purple-200 transition-colors duration-500 drop-shadow-2xl">
+      {/* TYPOGRAPHY LAYER - Fluid Typography */}
+      <div className="relative z-10 flex flex-col items-center leading-[0.85] text-white select-none pointer-events-none md:pointer-events-auto mt-8 md:mt-0">
+        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] hover:text-purple-200 transition-colors duration-500 drop-shadow-2xl">
           SCRATCH
         </h1>
-        <div className="flex items-center gap-4 ml-[10vw]">
-           <span className="h-[4px] w-[10vw] bg-cyan-400 hidden md:block shadow-[0_0_20px_#22d3ee]"></span>
-           <h1 className="font-serif text-[18vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-500">
+        <div className="flex items-center gap-2 md:gap-4 ml-[5vw] md:ml-[10vw]">
+           <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-cyan-400 block shadow-[0_0_20px_#22d3ee]"></span>
+           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-500">
              CROWN
            </h1>
         </div>
       </div>
 
-      {/* TECH SPEC SIDEBAR WIDGET */}
-      <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 z-30">
+      {/* MOBILE: STACKED LAYOUT BOTTOM */}
+      <div className="w-full flex flex-col gap-6 items-center px-4 relative z-30 md:hidden mt-auto">
+          
+          {/* Mobile Widget */}
+          <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 p-4 w-full max-w-[320px] rounded-lg">
+            <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-2">
+              <span className="font-mono text-[10px] text-cyan-400 font-bold">SYS.STATUS: ONLINE</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div>
+            </div>
+            <div className="space-y-2 font-mono text-xs text-gray-300">
+              <div className="flex justify-between">
+                <span>PRIZE_POOL</span>
+                <span className="font-bold text-white">₹{EVENT_DETAILS.prizePool}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>DEADLINE</span>
+                <span>FEB 17</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile CTA */}
+          <Button 
+            onClick={onRegister}
+            size="lg" 
+            className="w-full max-w-[320px] rounded-lg border-2 border-purple-500 bg-purple-900/80 text-white font-serif italic text-xl shadow-[4px_4px_0px_#7c3aed]"
+         >
+            Join The Cult
+         </Button>
+      </div>
+
+      {/* DESKTOP: CORNER WIDGETS */}
+      
+      {/* Tech Spec Sidebar Widget (Desktop Only) */}
+      <div className="hidden md:block absolute bottom-12 left-12 z-30">
         <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 p-6 max-w-[280px]">
           <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
             <span className="font-mono text-[10px] text-cyan-400 font-bold">SYS.STATUS: ONLINE</span>
@@ -100,8 +133,8 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </div>
       </div>
 
-      {/* VIBRANT CTA BUTTON */}
-      <div className="absolute bottom-6 right-6 md:bottom-12 md:right-12 z-30">
+      {/* Vibrant CTA Button (Desktop Only) */}
+      <div className="hidden md:block absolute bottom-12 right-12 z-30">
          <Button 
             onClick={onRegister}
             size="xl" 

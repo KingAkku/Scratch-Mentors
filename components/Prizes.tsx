@@ -69,10 +69,10 @@ export const Prizes: React.FC = () => {
 
         {/* Header (Fades out faster) */}
         <div 
-          className="absolute top-10 left-0 w-full text-center z-10 transition-all duration-300"
+          className="absolute top-20 md:top-10 left-0 w-full text-center z-10 transition-all duration-300 px-4"
           style={{ opacity: Math.max(0, 1 - progress * 3), transform: `translateY(${-progress * 150}px)` }}
         >
-          <p className="font-mono text-cyan-400 text-sm mb-2">01 // REWARDS_MODULE</p>
+          <p className="font-mono text-cyan-400 text-xs md:text-sm mb-2">01 // REWARDS_MODULE</p>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
             The Payload
           </h2>
@@ -81,18 +81,18 @@ export const Prizes: React.FC = () => {
           </div>
         </div>
 
-        {/* 3D Anamorphic Scene */}
-        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center" style={{ perspective: '1000px' }}>
+        {/* 3D Anamorphic Scene - Scaled down heavily on mobile to keep fragments in view */}
+        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center" style={{ perspective: '1000px' }}>
           
           {/* New "PRIZEPOOL OF" Label */}
           <div 
-             className="absolute z-30 pointer-events-none transition-transform duration-100 ease-out"
+             className="absolute z-30 pointer-events-none transition-transform duration-100 ease-out w-full text-center"
              style={{ 
                opacity: labelOpacity,
                transform: `translateY(${-120 + (1 - labelOpacity) * 30}px) scale(${0.8 + labelOpacity * 0.2})` 
              }}
           >
-             <h3 className="font-mono text-cyan-400 text-lg md:text-xl font-bold tracking-[0.4em] text-center uppercase drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]">
+             <h3 className="font-mono text-cyan-400 text-3xl md:text-xl font-bold tracking-[0.4em] text-center uppercase drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]">
                PRIZEPOOL OF
              </h3>
           </div>
@@ -117,7 +117,7 @@ export const Prizes: React.FC = () => {
                 }}
               >
                 {item.type === 'text' ? (
-                  <span className="text-6xl md:text-9xl font-black text-white tracking-tighter select-none">
+                  <span className="text-9xl font-black text-white tracking-tighter select-none whitespace-nowrap">
                     {item.content}
                   </span>
                 ) : (
@@ -130,33 +130,33 @@ export const Prizes: React.FC = () => {
 
         {/* Secondary Details */}
         <div 
-          className={`absolute bottom-0 w-full max-w-5xl px-4 pb-12 transition-all duration-700 transform ${isAligned ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+          className={`absolute bottom-0 w-full max-w-5xl px-6 pb-24 md:pb-12 transition-all duration-700 transform ${isAligned ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             
             {/* Internship Card */}
-            <div className="bg-white/5 border border-purple-500/30 p-8 backdrop-blur-md group hover:bg-[#7c3aed] hover:text-white transition-all duration-300">
+            <div className="bg-white/5 border border-purple-500/30 p-6 md:p-8 backdrop-blur-md group hover:bg-[#7c3aed] hover:text-white transition-all duration-300 rounded-lg">
                <div className="flex justify-between items-start mb-4">
-                 <Briefcase size={32} className="text-cyan-400 group-hover:text-white" />
-                 <span className="font-mono text-xs border border-current px-2 py-1 rounded">CAREER_MODE</span>
+                 <Briefcase size={28} className="text-cyan-400 group-hover:text-white" />
+                 <span className="font-mono text-[10px] md:text-xs border border-current px-2 py-1 rounded">CAREER_MODE</span>
                </div>
-               <h3 className="text-2xl font-bold mb-2">3-Month Internship</h3>
-               <p className="font-mono text-sm opacity-70">@ LogicBox Studio // Full Stack Dev</p>
+               <h3 className="text-xl md:text-2xl font-bold mb-2">3-Month Internship</h3>
+               <p className="font-mono text-xs md:text-sm opacity-70">@ LogicBox Studio // Full Stack Dev</p>
             </div>
 
             {/* Runners Up Card */}
-            <div className="bg-white/5 border border-white/10 p-8 backdrop-blur-md group hover:bg-cyan-900/50 transition-all duration-300">
+            <div className="bg-white/5 border border-white/10 p-6 md:p-8 backdrop-blur-md group hover:bg-cyan-900/50 transition-all duration-300 rounded-lg">
                <div className="flex justify-between items-start mb-4">
-                 <Award size={32} className="text-purple-400" />
-                 <span className="font-mono text-xs text-purple-300">TIER_2</span>
+                 <Award size={28} className="text-purple-400" />
+                 <span className="font-mono text-[10px] md:text-xs text-purple-300">TIER_2</span>
                </div>
-               <h3 className="text-2xl font-bold mb-2 text-white">Runners Up</h3>
-               <p className="font-mono text-sm text-gray-400">Exclusive Swag + Mentorship Sessions</p>
+               <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">Runners Up</h3>
+               <p className="font-mono text-xs md:text-sm text-gray-400">Exclusive Swag + Mentorship Sessions</p>
             </div>
 
           </div>
           
-          <div className="text-center mt-8 animate-bounce text-purple-400/50">
+          <div className="text-center mt-6 md:mt-8 animate-bounce text-purple-400/50">
             <ChevronRight className="rotate-90 mx-auto" />
           </div>
         </div>
