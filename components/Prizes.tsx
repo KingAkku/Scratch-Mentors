@@ -67,10 +67,10 @@ export const Prizes: React.FC = () => {
           }}
         ></div>
 
-        {/* Header (Fades out faster) */}
+        {/* Header - Increased z-index to 30 to sit above fog, adjusted opacity fade */}
         <div 
-          className="absolute top-20 md:top-10 left-0 w-full text-center z-10 transition-all duration-300 px-4"
-          style={{ opacity: Math.max(0, 1 - progress * 3), transform: `translateY(${-progress * 150}px)` }}
+          className="absolute top-20 md:top-10 left-0 w-full text-center z-30 transition-all duration-300 px-4"
+          style={{ opacity: Math.max(0, 1 - progress * 2), transform: `translateY(${-progress * 100}px)` }}
         >
           <p className="font-mono text-cyan-400 text-xs md:text-sm mb-2">01 // REWARDS_MODULE</p>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
@@ -79,8 +79,8 @@ export const Prizes: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>
         </div>
 
-        {/* 3D Anamorphic Scene - Scaled down heavily on mobile to keep fragments in view */}
-        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center" style={{ perspective: '1000px' }}>
+        {/* 3D Anamorphic Scene - Added -translate-y-24 for mobile to prevent overlap with bottom cards */}
+        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center -translate-y-24 md:translate-y-0" style={{ perspective: '1000px' }}>
           
           {/* New "PRIZEPOOL OF" Label */}
           <div 
@@ -111,7 +111,7 @@ export const Prizes: React.FC = () => {
                 style={{
                   transform: `translate3d(${currentX}px, ${currentY}px, ${currentZ}px) rotate(${currentR}deg) scale(${item.scale || 1})`,
                   opacity: opacity,
-                  zIndex: item.type === 'text' ? 20 : 10 // Ensure text is in front
+                  zIndex: item.type === 'text' ? 20 : 10 
                 }}
               >
                 {item.type === 'text' ? (
@@ -126,9 +126,9 @@ export const Prizes: React.FC = () => {
           })}
         </div>
 
-        {/* Secondary Details */}
+        {/* Secondary Details - Increased Z-index to 40 to ensure interactivity and visibility */}
         <div 
-          className={`absolute bottom-0 w-full max-w-5xl px-6 pb-24 md:pb-12 transition-all duration-700 transform ${isAligned ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+          className={`absolute bottom-0 w-full max-w-5xl px-6 pb-24 md:pb-12 transition-all duration-700 transform z-40 ${isAligned ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             
