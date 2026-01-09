@@ -30,11 +30,12 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-amber-400 rounded-lg flex items-center justify-center transform -rotate-3">
-             <span className="font-bold text-purple-900 text-xl">L</span>
+          {/* Logo Box: Purple on Amber (Initial), Amber on Purple (Scrolled) */}
+          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transform -rotate-3 transition-colors ${isScrolled ? 'bg-amber-400' : 'bg-[#1e0b36]'}`}>
+             <span className={`font-bold text-xl ${isScrolled ? 'text-purple-900' : 'text-amber-400'}`}>L</span>
           </div>
-          <span className={`text-2xl font-bold tracking-tight ${isScrolled ? 'text-white' : 'text-white'}`}>
-            Logic<span className="text-amber-400">Box</span>
+          <span className={`text-2xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-white' : 'text-[#1e0b36]'}`}>
+            Logic<span className={isScrolled ? 'text-amber-400' : 'text-white'}>Box</span>
           </span>
         </div>
 
@@ -44,19 +45,24 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-white/80 hover:text-amber-400 font-medium transition-colors"
+              className={`font-medium transition-colors ${isScrolled ? 'text-white/80 hover:text-amber-400' : 'text-[#1e0b36]/80 hover:text-white'}`}
             >
               {link.name}
             </a>
           ))}
-          <Button onClick={onRegister} variant={isScrolled ? 'primary' : 'outline'} size="sm">
+          <Button 
+            onClick={onRegister} 
+            variant={isScrolled ? 'primary' : 'secondary'} 
+            className={!isScrolled ? 'bg-[#1e0b36] text-amber-400 hover:bg-[#2e1065] border-transparent' : ''}
+            size="sm"
+          >
             Register Now
           </Button>
         </div>
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-white"
+          className={`md:hidden ${isScrolled ? 'text-white' : 'text-[#1e0b36]'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
