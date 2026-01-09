@@ -8,7 +8,7 @@ const JUDGES = [
     role: "Lead Logic Architect",
     company: "LogicBox",
     tags: ["Algorithms", "Optimization"],
-    image: "https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah&backgroundColor=b6e3f4&clothing=blazerAndShirt&eyes=happy&eyebrows=default&mouth=smile"
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const JUDGES = [
     role: "Creative Director",
     company: "PixelForge",
     tags: ["Game Design", "UX/UI"],
-    image: "https://api.dicebear.com/9.x/avataaars/svg?seed=Marcus&backgroundColor=c0aede&clothing=hoodie&eyes=wink&eyebrows=raised&mouth=default"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const JUDGES = [
     role: "Scratch Educator",
     company: "CodeAcademy",
     tags: ["Education", "Creativity"],
-    image: "https://api.dicebear.com/9.x/avataaars/svg?seed=Elena&backgroundColor=ffdfbf&clothing=collarAndSweater&eyes=default&eyebrows=default&mouth=smile"
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
   }
 ];
 
