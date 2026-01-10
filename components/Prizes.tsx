@@ -91,7 +91,8 @@ export const Prizes: React.FC = () => {
         </div>
 
         {/* 3D Anamorphic Scene */}
-        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center -translate-y-24 md:translate-y-0" style={{ perspective: '1000px' }}>
+        {/* Adjusted vertical positioning to prevent overlap with bottom cards */}
+        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center -translate-y-40 md:-translate-y-32" style={{ perspective: '1000px' }}>
           
           <div 
              className="absolute z-30 pointer-events-none transition-transform duration-100 ease-out w-full text-center"
