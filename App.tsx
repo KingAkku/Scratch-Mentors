@@ -10,7 +10,7 @@ import { WinnerCriteria } from './components/WinnerCriteria';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 import { RegisterModal } from './components/RegisterModal';
-import { CustomCursor } from './components/CustomCursor';
+import { ClickScratch } from './components/ClickScratch';
 
 function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -20,8 +20,14 @@ function App() {
 
   return (
     <div className="min-h-screen relative">
-      <CustomCursor />
+      <ClickScratch />
       
+      {/* Background Pattern - Fixed in place of custom cursor mask */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 circuit-pattern"
+        aria-hidden="true"
+      />
+
       <div className="relative z-10">
         <Header onRegister={openRegister} />
         
