@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Trophy, Briefcase, ChevronRight, Binary, Award } from 'lucide-react';
+import { Briefcase, ChevronRight, Award } from 'lucide-react';
 
 // Data for the 3D fragments.
 const FRAGMENTS = [
@@ -12,7 +12,7 @@ const FRAGMENTS = [
   { type: 'text', content: '0', startX: 400, startY: 300, startZ: 300, r: 45, targetX: 150, targetY: 0, targetZ: 0 },
   { type: 'text', content: '0', startX: 600, startY: -100, startZ: -400, r: -90, targetX: 250, targetY: 0, targetZ: 0 },
   
-  // Purple Cubes
+  // Yellow/Amber Cubes
   { type: 'cube', startX: -600, startY: 100, startZ: 50, r: 120, scale: 1.5, targetX: -450, targetY: -100, targetZ: -200 },
   { type: 'cube', startX: 600, startY: -100, startZ: 150, r: -120, scale: 0.8, targetX: 450, targetY: 100, targetZ: -300 },
   { type: 'cube', startX: -400, startY: -300, startZ: -100, r: 60, scale: 1.2, targetX: -350, targetY: 200, targetZ: -150 },
@@ -57,7 +57,7 @@ export const Prizes: React.FC = () => {
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center perspective-container">
         
         {/* Background Gradients & Fog */}
-        <div className="absolute inset-0 bg-radial-gradient from-purple-100/50 to-white z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-radial-gradient from-yellow-50/50 to-white z-0 pointer-events-none"></div>
         <div 
           className="absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ease-in-out"
           style={{ 
@@ -88,7 +88,7 @@ export const Prizes: React.FC = () => {
                transform: `translateY(${-120 + (1 - labelOpacity) * 30}px) scale(${0.8 + labelOpacity * 0.2})` 
              }}
           >
-             <h3 className="font-mono text-purple-600 text-3xl md:text-xl font-bold tracking-[0.4em] text-center uppercase">
+             <h3 className="font-mono text-yellow-600 text-3xl md:text-xl font-bold tracking-[0.4em] text-center uppercase">
                PRIZEPOOL OF
              </h3>
           </div>
@@ -117,7 +117,8 @@ export const Prizes: React.FC = () => {
                     {item.content}
                   </span>
                 ) : (
-                  <div className="w-16 h-16 bg-purple-100 border border-purple-300 backdrop-blur-sm shadow-md"></div>
+                  // Updated cube color to Yellow/Amber
+                  <div className="w-16 h-16 bg-yellow-100 border border-yellow-300 backdrop-blur-sm shadow-md"></div>
                 )}
               </div>
             );
