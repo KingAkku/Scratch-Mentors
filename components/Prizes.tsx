@@ -2,6 +2,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Briefcase, ChevronRight, Award } from 'lucide-react';
 
+// Colors simulating the bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500
+const CHAR_SHADOWS = [
+  'rgba(147, 51, 234, 0.8)', // ₹ (Purple-600)
+  'rgba(192, 38, 211, 0.8)', // 3 (Purple/Pink)
+  'rgba(236, 72, 153, 0.8)', // 0 (Pink-500)
+  'rgba(244, 63, 94, 0.8)',  // , (Pink/Red)
+  'rgba(251, 146, 60, 0.8)', // 0 (Orange)
+  'rgba(250, 204, 21, 0.8)', // 0 (Yellow-400)
+  'rgba(234, 179, 8, 0.8)'   // 0 (Yellow-500)
+];
+
 // Data for the 3D fragments.
 const FRAGMENTS = [
   // Text Characters: "₹ 3 0 , 0 0 0"
@@ -103,14 +114,21 @@ export const Prizes: React.FC = () => {
             const currentR = item.r * (1 - ease); 
             const opacity = Math.min(1, progress * 3 + 0.1); 
 
+            // Calculate gradient shadow specifically for text items based on index
+            const shadowColor = item.type === 'text' ? CHAR_SHADOWS[idx] : '';
+            const textShadowStyle = isAligned && item.type === 'text' 
+              ? `0 0 20px ${shadowColor}, 0 0 50px ${shadowColor}` 
+              : 'none';
+
             return (
               <div
                 key={idx}
-                className={`absolute transition-colors duration-300 ${isAligned && item.type === 'text' ? 'text-shadow-glow' : ''}`}
+                className={`absolute transition-all duration-500`}
                 style={{
                   transform: `translate3d(${currentX}px, ${currentY}px, ${currentZ}px) rotate(${currentR}deg) scale(${item.scale || 1})`,
                   opacity: opacity,
-                  zIndex: item.type === 'text' ? 20 : 10 
+                  zIndex: item.type === 'text' ? 20 : 10,
+                  textShadow: textShadowStyle
                 }}
               >
                 {item.type === 'text' ? (
