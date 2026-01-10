@@ -32,6 +32,7 @@ const GlassCat = () => {
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
           <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
         </div>
+        {/* Ears 2 */}
         <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d', transform: `translate3d(60px, -110px, 0px) rotateZ(15deg)` }}>
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(0deg) translateZ(${earSize/2}px)` }} />
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
@@ -56,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
 
       {/* TYPOGRAPHY LAYER */}
       <div className="relative z-10 flex flex-col items-center leading-[0.85] text-black select-none pointer-events-none md:pointer-events-auto mt-8 md:mt-0">
-        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] hover:text-gray-800 transition-colors duration-500">
+        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] text-gray-800 hover:text-black transition-colors duration-500">
           SCRATCH
         </h1>
         <div className="flex items-center gap-2 md:gap-4 ml-[5vw] md:ml-[10vw]">

@@ -86,12 +86,13 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
 
                 <div className="group">
                     <label className="block font-mono text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider group-focus-within:text-purple-600 transition-colors">
-                        Scratch Profile URL <span className="text-gray-300 font-normal normal-case">(Optional)</span>
+                        Instagram Video Submission Link
                     </label>
                     <input 
                     type="url" 
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 outline-none transition-all font-medium text-black placeholder:text-gray-300"
-                    placeholder="https://scratch.mit.edu/users/..."
+                    placeholder="https://www.instagram.com/reel/..."
                     />
                 </div>
 
