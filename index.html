@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -89,9 +90,12 @@
         transform: translateY(0);
       }
 
-      /* Glow Effect for Text - Updated to Yellow/Gold */
+      /* Glow Effect for Text - Updated to Gradient Match */
       .text-shadow-glow {
-        text-shadow: 0 0 30px rgba(250, 204, 21, 0.6), 0 0 60px rgba(234, 179, 8, 0.4);
+        text-shadow: 
+          0 0 20px rgba(124, 58, 237, 0.6), /* Purple */
+          0 0 40px rgba(236, 72, 153, 0.5), /* Pink */
+          0 0 60px rgba(234, 179, 8, 0.4);  /* Yellow */
       }
     </style>
   <script type="importmap">
@@ -108,3 +112,5 @@
   <body class="bg-white text-black antialiased selection:bg-purple-200 selection:text-purple-900">
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
+  </body>
+</html>
