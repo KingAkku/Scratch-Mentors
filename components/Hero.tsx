@@ -50,8 +50,8 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-24 md:py-0 bg-transparent">
       
-      {/* 3D FLOATING LAYER - Moved up slightly to avoid overlapping with sponsors */}
-      <div className="absolute top-[35%] md:top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.55] md:scale-100 transition-all duration-500">
+      {/* 3D FLOATING LAYER */}
+      <div className="absolute top-[35%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.55] md:scale-100 transition-all duration-500">
         <GlassCat />
       </div>
 
@@ -68,20 +68,20 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </div>
       </div>
 
-      {/* SPONSORSHIP & ORGANIZATION STRIP - Increased spacing and sizes */}
-      <div className="relative z-20 mt-24 md:mt-32 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+      {/* SPONSORSHIP & ORGANIZATION STRIP */}
+      <div className="relative z-20 mt-24 md:mt-12 flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="flex flex-col items-center">
-             <p className="font-mono text-sm md:text-base font-bold text-gray-400 uppercase tracking-widest mb-4">Powered By</p>
-             <img src="lt.svg" alt="Lenient Tree" className="h-16 md:h-24 w-auto object-contain" />
+             <p className="font-mono text-sm md:text-[10px] font-bold md:font-normal text-gray-400 uppercase tracking-widest mb-4 md:mb-2">Powered By</p>
+             <img src="lt.svg" alt="Lenient Tree" className="h-16 md:h-8 w-auto object-contain" />
           </div>
           
-          <div className="h-16 w-px bg-gray-200 hidden md:block"></div>
+          <div className="h-16 md:h-8 w-px bg-gray-200 hidden md:block"></div>
 
           <div className="flex flex-col items-center">
-             <p className="font-mono text-sm md:text-base font-bold text-gray-400 uppercase tracking-widest mb-4">Sponsored By</p>
-             <div className="flex items-center gap-4">
-               <img src="lg.svg" alt="LogicBox Logo" className="h-14 md:h-20 w-auto object-contain" />
-               <span className="font-bold text-4xl md:text-5xl text-gray-800">LogicBox</span>
+             <p className="font-mono text-sm md:text-[10px] font-bold md:font-normal text-gray-400 uppercase tracking-widest mb-4 md:mb-2">Sponsored By</p>
+             <div className="flex items-center gap-4 md:gap-2">
+               <img src="lg.svg" alt="LogicBox Logo" className="h-14 md:h-8 w-auto object-contain" />
+               <span className="font-bold text-4xl md:text-xl text-gray-800">LogicBox</span>
              </div>
           </div>
       </div>
