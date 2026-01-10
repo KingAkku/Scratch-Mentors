@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useMemo } from 'react';
 import { TIMELINE } from '../constants';
 
@@ -23,7 +24,7 @@ const ShatterCard = React.memo(({ item, index }: { item: any, index: number }) =
       */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-white border border-purple-200 shadow-xl rounded-sm flex flex-col justify-center p-6 z-0 transform scale-[0.98] transition-transform duration-300 group-hover:scale-100">
         <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-           <div className="text-[10px] font-mono text-purple-400 tracking-widest uppercase">Decrypted</div>
+           <div className="text-[10px] font-mono text-purple-400 tracking-widest uppercase">More Info</div>
         </div>
       </div>
 
@@ -33,7 +34,7 @@ const ShatterCard = React.memo(({ item, index }: { item: any, index: number }) =
       <div className="relative z-20 p-8 h-full flex flex-col justify-center pointer-events-none">
         <div className="flex items-center gap-3 mb-2">
           <span className="font-mono text-xs text-purple-600 bg-purple-100/50 px-2 py-1 border border-purple-200 rounded">
-            SEQ_{index + 1}
+            Phase {index + 1}
           </span>
           <span className="font-mono text-sm text-purple-500 font-bold">
             {item.date}
@@ -110,10 +111,10 @@ export const Timeline: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="text-center mb-24 timeline-reveal reveal-on-scroll">
           <span className="inline-block py-1 px-3 border border-purple-200 rounded-full bg-purple-50 text-purple-600 font-mono text-xs mb-4 tracking-widest">
-            SYSTEM_LOG // V.2.0
+            Tournament Schedule
           </span>
           <h2 className="text-5xl md:text-7xl font-black text-black uppercase tracking-tighter">
-            Execution <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Plan</span>
+            Event <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Timeline</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>
         </div>

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Briefcase, ChevronRight, Award } from 'lucide-react';
 
@@ -71,9 +72,9 @@ export const Prizes: React.FC = () => {
           className="absolute top-20 md:top-10 left-0 w-full text-center z-30 transition-all duration-300 px-4"
           style={{ opacity: Math.max(0, 1 - progress * 2), transform: `translateY(${-progress * 100}px)` }}
         >
-          <p className="font-mono text-purple-600 text-xs md:text-sm mb-2">01 // REWARDS_MODULE</p>
+          <p className="font-mono text-purple-600 text-xs md:text-sm mb-2">01 // Prizes</p>
           <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Payload</span>
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Rewards</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>
         </div>
@@ -135,7 +136,7 @@ export const Prizes: React.FC = () => {
             <div className="bg-white border border-gray-200 p-6 md:p-8 backdrop-blur-md group hover:shadow-xl hover:border-purple-200 transition-all duration-300 rounded-lg shadow-sm">
                <div className="flex justify-between items-start mb-4">
                  <Briefcase size={28} className="text-purple-600" />
-                 <span className="font-mono text-[10px] md:text-xs border border-purple-200 text-purple-700 px-2 py-1 rounded">CAREER_MODE</span>
+                 <span className="font-mono text-[10px] md:text-xs border border-purple-200 text-purple-700 px-2 py-1 rounded">Internship</span>
                </div>
                <h3 className="text-xl md:text-2xl font-bold mb-2 text-black">3-Month Internship</h3>
                <p className="font-mono text-xs md:text-sm text-gray-600">@ LogicBox Studio // Full Stack Dev</p>
@@ -145,7 +146,7 @@ export const Prizes: React.FC = () => {
             <div className="bg-white border border-gray-200 p-6 md:p-8 backdrop-blur-md group hover:shadow-xl hover:border-blue-200 transition-all duration-300 rounded-lg shadow-sm">
                <div className="flex justify-between items-start mb-4">
                  <Award size={28} className="text-blue-500" />
-                 <span className="font-mono text-[10px] md:text-xs text-blue-600">TIER_2</span>
+                 <span className="font-mono text-[10px] md:text-xs text-blue-600">Runners Up</span>
                </div>
                <h3 className="text-xl md:text-2xl font-bold mb-2 text-black">Runners Up</h3>
                <p className="font-mono text-xs md:text-sm text-gray-600">Exclusive Swag + Mentorship Sessions</p>

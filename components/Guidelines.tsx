@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Check, ShieldCheck, UserPlus, Code2, AlertTriangle } from 'lucide-react';
 
@@ -24,23 +25,23 @@ export const Guidelines: React.FC = () => {
 
   const rules = [
     {
-      title: "ACCESS_LEVEL: OPEN",
-      desc: "No entry fees. Global access granted to all user classes.",
+      title: "Eligibility: Open",
+      desc: "No entry fees. Global access granted to all participants.",
       icon: UserPlus
     },
     {
-      title: "ENV: SCRATCH_3.0",
-      desc: "Mandatory platform. Remixing permitted with attribution.",
+      title: "Platform: Scratch 3.0",
+      desc: "Mandatory platform. Remixing permitted with proper attribution.",
       icon: Code2
     },
     {
-      title: "INTEGRITY_CHECK",
+      title: "Originality Check",
       desc: "Plagiarism detection active. Zero tolerance for code theft.",
       icon: ShieldCheck
     },
     {
-      title: "DEADLINE_ENFORCED",
-      desc: "Packet submission required by Feb 17, 23:59 system time.",
+      title: "Deadline",
+      desc: "Project submission required by Feb 17, 11:59 PM.",
       icon: AlertTriangle
     }
   ];
@@ -51,14 +52,14 @@ export const Guidelines: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
           <div className="reveal-on-scroll">
-            <p className="font-mono text-purple-600 text-sm mb-2">03 // PROTOCOLS</p>
+            <p className="font-mono text-purple-600 text-sm mb-2">03 // Guidelines</p>
             <h2 className="text-4xl md:text-6xl font-black text-black mb-4">
-              System <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Rules</span>
+              Rules & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Regulations</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-6 mb-8"></div>
             
             <div className="font-mono text-sm text-gray-600 border-l-2 border-purple-500 pl-4 py-2 bg-purple-50">
-              <p className="text-black font-bold mb-1">PRO_TIP:</p>
+              <p className="text-black font-bold mb-1">Pro Tip:</p>
               <p>Clean code structure increases judging probability by 40%.</p>
             </div>
           </div>

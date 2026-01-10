@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Linkedin, ExternalLink } from 'lucide-react';
 
@@ -42,7 +43,7 @@ const JudgeCard = ({ judge }: { judge: typeof JUDGES[0] }) => {
         
         {/* Header: Tech Decoration */}
         <div className="flex justify-between items-center mb-6 opacity-60 font-mono text-[10px] tracking-widest text-purple-600">
-           <span>ID: 00{judge.id}</span>
+           <span>Judge {judge.id}</span>
            <div className="flex gap-1">
              <div className="w-1 h-1 bg-current rounded-full"></div>
              <div className="w-1 h-1 bg-current rounded-full"></div>
@@ -128,10 +129,10 @@ export const Judges: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16 reveal-on-scroll">
           <span className="font-mono text-purple-600 text-xs tracking-[0.3em] uppercase mb-3 block">
-            System Authority
+            Panel of Judges
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tighter">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500">Arbiters</span>
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500">Judges</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>
         </div>

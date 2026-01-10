@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from './Button';
 import { EVENT_DETAILS } from '../constants';
@@ -79,16 +80,16 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
           {/* Mobile Widget */}
           <div className="bg-white/80 border border-gray-200 backdrop-blur-md p-4 w-full max-w-[320px] rounded-lg shadow-lg">
             <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
-              <span className="font-mono text-[10px] text-purple-600 font-bold">SYS.STATUS: ONLINE</span>
+              <span className="font-mono text-[10px] text-purple-600 font-bold">Status: Open</span>
               <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
             </div>
             <div className="space-y-2 font-mono text-xs text-gray-600">
               <div className="flex justify-between">
-                <span>PRIZE_POOL</span>
+                <span>Prize Pool</span>
                 <span className="font-bold text-black">₹{EVENT_DETAILS.prizePool}</span>
               </div>
               <div className="flex justify-between">
-                <span>DEADLINE</span>
+                <span>Deadline</span>
                 <span>FEB 17</span>
               </div>
             </div>
@@ -100,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
             size="lg" 
             className="w-full max-w-[320px] rounded-lg border-2 border-purple-600 bg-purple-600 text-white font-serif italic text-xl shadow-[4px_4px_0px_#000000]"
          >
-            Join The Cult
+            Register Now
          </Button>
       </div>
 
@@ -110,25 +111,25 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
       <div className="hidden md:block absolute bottom-12 left-12 z-30">
         <div className="bg-white/90 border border-gray-200 backdrop-blur-md p-6 max-w-[280px] shadow-xl rounded-sm">
           <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-2">
-            <span className="font-mono text-[10px] text-purple-600 font-bold">SYS.STATUS: ONLINE</span>
+            <span className="font-mono text-[10px] text-purple-600 font-bold">Status: Open</span>
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
           </div>
           <div className="space-y-3 font-mono text-xs text-gray-600">
             <div className="flex justify-between">
-              <span>PRIZE_POOL</span>
+              <span>Prize Pool</span>
               <span className="font-bold text-black">₹{EVENT_DETAILS.prizePool}</span>
             </div>
             <div className="flex justify-between">
-              <span>DEADLINE</span>
+              <span>Deadline</span>
               <span>FEB 17</span>
             </div>
             <div className="flex justify-between">
-              <span>CLASS</span>
-              <span>OPEN / FREE</span>
+              <span>Type</span>
+              <span>Open</span>
             </div>
           </div>
           <div className="mt-4 pt-2 border-t border-gray-100 text-[10px] text-gray-400 uppercase tracking-wider">
-            LogicBox Tournament v2.0
+            LogicBox Tournament
           </div>
         </div>
       </div>
@@ -140,7 +141,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
             size="xl" 
             className="rounded-none border-2 border-black bg-white text-black hover:bg-black hover:text-white font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1"
          >
-            Join The Cult
+            Register Now
          </Button>
       </div>
 
@@ -149,7 +150,6 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         <div className="font-mono text-xs text-right space-y-1 font-bold">
            <p>LAT: 40.7128° N</p>
            <p>LNG: 74.0060° W</p>
-           <p>SEC: A-7</p>
         </div>
       </div>
 

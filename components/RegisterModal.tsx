@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { X, CheckCircle, Loader2 } from 'lucide-react';
 import { Button } from './Button';
@@ -46,9 +47,9 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <div className="flex justify-between items-start mb-8">
                 <div>
                     <span className="font-mono text-[10px] text-purple-600 tracking-widest uppercase bg-purple-50 px-2 py-1 rounded border border-purple-100">
-                        System_Entry
+                        Registration
                     </span>
-                    <h3 className="text-3xl font-serif font-black italic text-black mt-3">Join the <span className="text-purple-600">Cult</span></h3>
+                    <h3 className="text-3xl font-serif font-black italic text-black mt-3">Register for <span className="text-purple-600">Tournament</span></h3>
                 </div>
                 <button 
                     onClick={onClose} 
@@ -61,7 +62,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="group">
                     <label className="block font-mono text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider group-focus-within:text-purple-600 transition-colors">
-                        Candidate Name
+                        Full Name
                     </label>
                     <input 
                     required 
@@ -73,7 +74,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 
                 <div className="group">
                     <label className="block font-mono text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider group-focus-within:text-purple-600 transition-colors">
-                        Comm Link (Email)
+                        Email Address
                     </label>
                     <input 
                     required 
@@ -102,7 +103,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                     >
                     {isLoading ? (
                         <span className="flex items-center gap-2 justify-center">
-                        <Loader2 className="animate-spin" size={20} /> Processing_Data...
+                        <Loader2 className="animate-spin" size={20} /> Submitting...
                         </span>
                     ) : (
                         "Confirm Registration"
@@ -111,7 +112,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                     <div className="flex justify-center items-center gap-2 mt-4 opacity-60">
                         <div className="h-1 w-1 rounded-full bg-green-500 animate-pulse"></div>
                         <p className="font-mono text-[10px] text-gray-500">
-                        SECURE_CONNECTION // FREE ENTRY
+                        Secure Registration // Free Entry
                         </p>
                     </div>
                 </div>
@@ -122,12 +123,12 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-green-50">
                     <CheckCircle size={40} />
                 </div>
-                <h3 className="text-3xl font-serif font-black italic text-black mb-3">Welcome Aboard</h3>
+                <h3 className="text-3xl font-serif font-black italic text-black mb-3">Registration Successful</h3>
                 <p className="text-gray-500 mb-8 font-medium">
-                    Your data has been logged in the system. Check your comms (email) for the mission briefing.
+                    Your details have been recorded. Please check your email for further instructions.
                 </p>
                 <Button onClick={onClose} variant="secondary" className="w-full border border-gray-200 hover:border-purple-300">
-                    Close Terminal
+                    Close
                 </Button>
             </div>
             )}
