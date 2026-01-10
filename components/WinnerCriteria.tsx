@@ -74,7 +74,7 @@ export const WinnerCriteria: React.FC = () => {
           {CRITERIA.map((item, idx) => (
             <div 
               key={idx} 
-              className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-purple-200 hover:bg-white transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
             >
               {/* Top accent line */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
