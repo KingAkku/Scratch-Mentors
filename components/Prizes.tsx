@@ -66,7 +66,8 @@ export const Prizes: React.FC = () => {
     <section id="prizes" ref={containerRef} className="relative h-[200vh] bg-white z-20 text-black">
       
       {/* Sticky Viewport */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center perspective-container">
+      {/* Changed justify-center to justify-start on mobile and added top padding to lift content up */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-start pt-32 md:pt-0 md:justify-center perspective-container">
         
         {/* Background Gradients & Fog */}
         <div className="absolute inset-0 bg-radial-gradient from-yellow-50/50 to-white z-0 pointer-events-none"></div>
@@ -78,9 +79,9 @@ export const Prizes: React.FC = () => {
           }}
         ></div>
 
-        {/* Header */}
+        {/* Header - Moved to absolute top to not affect flex flow as much, or keep relative but ensure spacing */}
         <div 
-          className="absolute top-20 md:top-10 left-0 w-full text-center z-30 transition-all duration-300 px-4"
+          className="absolute top-8 md:top-10 left-0 w-full text-center z-30 transition-all duration-300 px-4"
           style={{ opacity: Math.max(0, 1 - progress * 2), transform: `translateY(${-progress * 100}px)` }}
         >
           <p className="font-mono text-purple-600 text-xs md:text-sm mb-2">01 // Prizes</p>
@@ -91,8 +92,8 @@ export const Prizes: React.FC = () => {
         </div>
 
         {/* 3D Anamorphic Scene */}
-        {/* Adjusted vertical positioning to prevent overlap with bottom cards */}
-        <div className="relative z-10 w-full max-w-7xl h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center -translate-y-40 md:-translate-y-32" style={{ perspective: '1000px' }}>
+        {/* Adjusted transform to push it up slightly more on mobile */}
+        <div className="relative z-10 w-full max-w-7xl h-[200px] md:h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center -translate-y-12 md:-translate-y-32" style={{ perspective: '1000px' }}>
           
           <div 
              className="absolute z-30 pointer-events-none transition-transform duration-100 ease-out w-full text-center"

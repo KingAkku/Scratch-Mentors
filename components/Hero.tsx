@@ -51,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-24 md:py-0 bg-transparent">
       
       {/* 3D FLOATING LAYER - Moved up slightly to avoid overlapping with sponsors */}
-      <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.6] md:scale-100">
+      <div className="absolute top-[35%] md:top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.55] md:scale-100 transition-all duration-500">
         <GlassCat />
       </div>
 
