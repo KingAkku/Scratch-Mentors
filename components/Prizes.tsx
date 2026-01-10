@@ -56,7 +56,7 @@ export const Prizes: React.FC = () => {
       });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -128,8 +128,7 @@ export const Prizes: React.FC = () => {
                   transform: `translate3d(${currentX}px, ${currentY}px, ${currentZ}px) rotate(${currentR}deg) scale(${item.scale || 1})`,
                   opacity: opacity,
                   zIndex: item.type === 'text' ? 20 : 10,
-                  textShadow: textShadowStyle,
-                  willChange: 'transform, opacity' // Optimization hint
+                  textShadow: textShadowStyle
                 }}
               >
                 {item.type === 'text' ? (

@@ -12,12 +12,12 @@
     <style>
       :root {
         --cursor-size: 20px;
-        --cursor-hover-size: 60px;
+        --cursor-hover-size: 80px;
       }
       body {
         font-family: 'Space Grotesk', sans-serif;
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #ffffff; /* White Background */
+        color: #000000; /* Black Text */
         cursor: none; /* Hide default cursor */
         overflow-x: hidden;
       }
@@ -31,19 +31,24 @@
       /* Custom Cursor */
       .custom-cursor {
         position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--cursor-size);
+        height: var(--cursor-size);
+        background-color: #7c3aed; /* Purple Cursor for contrast */
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
-        transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
-        mix-blend-mode: multiply;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s;
+        mix-blend-mode: multiply; /* Adjusted for light background */
       }
       
-      /* Circuit Background Pattern - Optimized */
+      /* Circuit Background Pattern - Updated for White BG */
       .circuit-pattern {
         background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h80v80h-80z' fill='none' stroke='%237c3aed' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M30 30h40v40h-40z' fill='none' stroke='%230891b2' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%237c3aed' fill-opacity='0.05'/%3E%3Cpath d='M10 50h30M60 50h30M50 10v30M50 60v30' stroke='%237c3aed' stroke-width='0.5' stroke-opacity='0.1'/%3E%3C/svg%3E");
-        /* Removed complex mask-image tracking mouse for performance stability on lower end devices, 
-           or keep it if GPU is strong, but usually it's the bottleneck. 
-           Simplifying to a static fade or removing mask tracking helps. */
+        mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 10%, transparent 40%);
+        -webkit-mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 10%, transparent 40%);
       }
 
       /* 3D Cube/Cat CSS */
@@ -53,16 +58,15 @@
       .cat-assembly {
         transform-style: preserve-3d;
         animation: floatAndRotate 20s infinite linear;
-        will-change: transform;
       }
       
-      /* Generic Cube Face Builder - Optimized (Removed backdrop-filter) */
+      /* Generic Cube Face Builder - Adjusted for Light Mode */
       .face {
         position: absolute;
-        background: rgba(124, 58, 237, 0.05);
-        border: 1px solid rgba(124, 58, 237, 0.2);
-        box-shadow: 0 0 15px rgba(124, 58, 237, 0.1);
-        /* backdrop-filter: blur(2px);  <-- REMOVED: Causing major lag */
+        background: rgba(124, 58, 237, 0.05); /* Very light purple */
+        border: 1px solid rgba(124, 58, 237, 0.2); /* Defined border */
+        box-shadow: 0 0 15px rgba(124, 58, 237, 0.1); /* Subtle glow */
+        backdrop-filter: blur(2px);
         backface-visibility: visible;
       }
 
@@ -85,14 +89,22 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Glow Effect for Text - Updated to Gradient Match */
+      .text-shadow-glow {
+        text-shadow: 
+          0 0 20px rgba(124, 58, 237, 0.6), /* Purple */
+          0 0 40px rgba(236, 72, 153, 0.5), /* Pink */
+          0 0 60px rgba(234, 179, 8, 0.4);  /* Yellow */
+      }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
-    "react/": "https://esm.sh/react@18.2.0/",
-    "lucide-react": "https://esm.sh/lucide-react@0.263.1"
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
   }
 }
 </script>
