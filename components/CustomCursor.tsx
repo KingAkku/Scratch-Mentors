@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from 'react';
+
+import React, { useEffect, useRef, useState } from 'react';
 
 export const CustomCursor: React.FC = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      // Update CSS variable for the circuit mask
+      // Direct DOM update for performance (bypasses React render cycle)
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      }
+      
+      // Update CSS variables for background mask (optimized to requestAnimationFrame could be better, but this is lighter without the state update)
       document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
       document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).tagName === 'BUTTON' || (e.target as HTMLElement).tagName === 'A') {
+      const target = e.target as HTMLElement;
+      // Check if hovering over interactive elements
+      if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.closest('button') || target.closest('a')) {
         setIsHovering(true);
       } else {
         setIsHovering(false);
@@ -36,12 +43,13 @@ export const CustomCursor: React.FC = () => {
         aria-hidden="true"
       />
       <div 
-        className="custom-cursor hidden md:block"
+        ref={cursorRef}
+        className={`custom-cursor hidden md:block ${isHovering ? 'w-[60px] h-[60px] bg-purple-500/20 border-2 border-purple-500' : 'w-[20px] h-[20px] bg-purple-600'}`}
         style={{ 
-          left: `${position.x}px`, 
-          top: `${position.y}px`,
-          width: isHovering ? '60px' : '20px',
-          height: isHovering ? '60px' : '20px',
+          // Initial position off-screen or top-left
+          left: 0, 
+          top: 0,
+          willChange: 'transform, width, height'
         }} 
       />
     </>
