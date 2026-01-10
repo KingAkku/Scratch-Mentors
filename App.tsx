@@ -30,25 +30,17 @@ function App() {
           <Guidelines />
           
           {/* CTA Section - Dark Theme */}
-          <section className="py-24 bg-neutral-900 relative overflow-hidden text-center px-4 border-t border-gray-800">
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-            
-            {/* Decorative Elements */}
-            <div className="absolute top-1/2 left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-[50px] pointer-events-none"></div>
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-[60px] pointer-events-none"></div>
-
+          <section className="py-24 bg-[#7c3aed] relative overflow-hidden text-center px-4 border-t border-gray-100">
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight">
                 SYSTEM READY?
               </h2>
-              <p className="text-gray-400 mb-8 font-mono text-sm md:text-base">
-                Initialize your sequence. The tournament grid awaits.
-              </p>
               <button 
                 onClick={openRegister}
                 className="bg-black text-white px-12 py-5 text-xl font-mono font-bold hover:bg-white hover:text-black hover:scale-105 transition-all shadow-2xl uppercase border-2 border-transparent hover:border-black"
               >
-                [Execute_Registration]
+                [ Execute_Registration ]
               </button>
             </div>
           </section>
