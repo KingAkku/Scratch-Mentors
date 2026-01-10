@@ -29,11 +29,11 @@ function App() {
           <Timeline />
           <Guidelines />
           
-          {/* CTA Section - Royal Purple Background */}
-          <section className="py-24 bg-[#7c3aed] relative overflow-hidden text-center px-4 border-t border-gray-100">
+          {/* CTA Section - Vibrant Yellow Background */}
+          <section className="py-24 bg-yellow-400 relative overflow-hidden text-center px-4 border-t border-gray-100">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight">
+              <h2 className="text-4xl md:text-6xl font-black text-black mb-6 uppercase tracking-tight">
                 SYSTEM READY?
               </h2>
               <button 

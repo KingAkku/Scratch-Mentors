@@ -25,85 +25,113 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-purple-950/80 backdrop-blur-sm" 
+        className="absolute inset-0 bg-white/80 backdrop-blur-md transition-all" 
         onClick={onClose}
       ></div>
       
-      <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in-up">
-        {step === 'form' ? (
-          <div className="p-8">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl font-bold text-purple-900 font-display">Join the Tournament</h3>
-              <button onClick={onClose} className="text-gray-400 hover:text-purple-900 transition-colors">
-                <X size={24} />
-              </button>
-            </div>
+      {/* Modal Container */}
+      <div className="relative bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] w-full max-w-lg overflow-hidden animate-fade-in-up border border-gray-100">
+        
+        {/* Background Pattern */}
+        <div className="absolute inset-0 circuit-pattern opacity-30 pointer-events-none"></div>
+        
+        {/* Decorative Top Line */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500"></div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input 
-                  required 
-                  type="text" 
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-100 outline-none transition-all"
-                  placeholder="Scratch Wizard"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <input 
-                  required 
-                  type="email" 
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-100 outline-none transition-all"
-                  placeholder="you@example.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Scratch Profile URL (Optional)</label>
-                <input 
-                  type="url" 
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-100 outline-none transition-all"
-                  placeholder="https://scratch.mit.edu/users/..."
-                />
-              </div>
-
-              <div className="pt-4">
-                <Button 
-                  type="submit" 
-                  className="w-full" 
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <span className="flex items-center gap-2">
-                      <Loader2 className="animate-spin" size={20} /> Registering...
+        <div className="relative z-10">
+            {step === 'form' ? (
+            <div className="p-8">
+                <div className="flex justify-between items-start mb-8">
+                <div>
+                    <span className="font-mono text-[10px] text-purple-600 tracking-widest uppercase bg-purple-50 px-2 py-1 rounded border border-purple-100">
+                        System_Entry
                     </span>
-                  ) : (
-                    "Confirm Registration"
-                  )}
-                </Button>
-                <p className="text-center text-xs text-gray-500 mt-3">
-                  100% Free Registration • Limited Spots
-                </p>
-              </div>
-            </form>
-          </div>
-        ) : (
-          <div className="p-12 text-center">
-            <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle size={32} />
+                    <h3 className="text-3xl font-serif font-black italic text-black mt-3">Join the <span className="text-purple-600">Cult</span></h3>
+                </div>
+                <button 
+                    onClick={onClose} 
+                    className="text-gray-400 hover:text-black transition-colors p-2 hover:bg-gray-100 rounded-full"
+                >
+                    <X size={20} />
+                </button>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="group">
+                    <label className="block font-mono text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider group-focus-within:text-purple-600 transition-colors">
+                        Candidate Name
+                    </label>
+                    <input 
+                    required 
+                    type="text" 
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 outline-none transition-all font-medium text-black placeholder:text-gray-300"
+                    placeholder="John Doe"
+                    />
+                </div>
+                
+                <div className="group">
+                    <label className="block font-mono text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider group-focus-within:text-purple-600 transition-colors">
+                        Comm Link (Email)
+                    </label>
+                    <input 
+                    required 
+                    type="email" 
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 outline-none transition-all font-medium text-black placeholder:text-gray-300"
+                    placeholder="you@example.com"
+                    />
+                </div>
+
+                <div className="group">
+                    <label className="block font-mono text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider group-focus-within:text-purple-600 transition-colors">
+                        Scratch Profile URL <span className="text-gray-300 font-normal normal-case">(Optional)</span>
+                    </label>
+                    <input 
+                    type="url" 
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 outline-none transition-all font-medium text-black placeholder:text-gray-300"
+                    placeholder="https://scratch.mit.edu/users/..."
+                    />
+                </div>
+
+                <div className="pt-4">
+                    <Button 
+                    type="submit" 
+                    className="w-full rounded-lg text-lg" 
+                    disabled={isLoading}
+                    >
+                    {isLoading ? (
+                        <span className="flex items-center gap-2 justify-center">
+                        <Loader2 className="animate-spin" size={20} /> Processing_Data...
+                        </span>
+                    ) : (
+                        "Confirm Registration"
+                    )}
+                    </Button>
+                    <div className="flex justify-center items-center gap-2 mt-4 opacity-60">
+                        <div className="h-1 w-1 rounded-full bg-green-500 animate-pulse"></div>
+                        <p className="font-mono text-[10px] text-gray-500">
+                        SECURE_CONNECTION // FREE ENTRY
+                        </p>
+                    </div>
+                </div>
+                </form>
             </div>
-            <h3 className="text-2xl font-bold text-purple-900 mb-2">You're In!</h3>
-            <p className="text-gray-600 mb-8">
-              We've sent a confirmation email with the next steps. Get your Scratch project ready!
-            </p>
-            <Button onClick={onClose} variant="secondary" className="w-full border border-gray-200">
-              Close
-            </Button>
-          </div>
-        )}
+            ) : (
+            <div className="p-12 text-center">
+                <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-green-50">
+                    <CheckCircle size={40} />
+                </div>
+                <h3 className="text-3xl font-serif font-black italic text-black mb-3">Welcome Aboard</h3>
+                <p className="text-gray-500 mb-8 font-medium">
+                    Your data has been logged in the system. Check your comms (email) for the mission briefing.
+                </p>
+                <Button onClick={onClose} variant="secondary" className="w-full border border-gray-200 hover:border-purple-300">
+                    Close Terminal
+                </Button>
+            </div>
+            )}
+        </div>
       </div>
     </div>
   );
