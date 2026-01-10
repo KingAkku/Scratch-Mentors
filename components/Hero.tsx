@@ -145,15 +145,14 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </div>
       </div>
 
-      {/* Vibrant CTA Button (Desktop Only) - Color Inverted */}
+      {/* Vibrant CTA Button (Desktop Only) - Color Inverted - Using native button to force style override */}
       <div className="hidden md:block absolute bottom-12 right-12 z-30">
-         <Button 
+         <button 
             onClick={onRegister}
-            size="xl" 
-            className="rounded-none border-2 border-black bg-black text-white hover:bg-white hover:text-black font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1"
+            className="rounded-none border-2 border-black bg-black text-white hover:bg-white hover:text-black font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-purple-500 cursor-none"
          >
             Register Now
-         </Button>
+         </button>
       </div>
 
     </section>

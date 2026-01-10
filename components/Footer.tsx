@@ -15,9 +15,17 @@ const SocialButton = ({ href, icon: Icon }: { href: string, icon: any }) => (
 
 export const Footer: React.FC = () => {
   const calculateTimeLeft = () => {
-    // Target date: End of Feb 17, 2025 (Submission deadline)
-    const targetDate = new Date('2025-02-17T23:59:59');
     const now = new Date();
+    const currentYear = now.getFullYear();
+    
+    // Target: Feb 17 of current year (Month is 0-indexed: 0=Jan, 1=Feb)
+    let targetDate = new Date(currentYear, 1, 17, 23, 59, 59);
+
+    // If today is past Feb 17, calculate for next year's Feb 17
+    if (now.getTime() > targetDate.getTime()) {
+      targetDate = new Date(currentYear + 1, 1, 17, 23, 59, 59);
+    }
+
     const difference = targetDate.getTime() - now.getTime();
 
     if (difference > 0) {
