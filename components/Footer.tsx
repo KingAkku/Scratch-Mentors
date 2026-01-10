@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Twitter, Instagram, Linkedin, Youtube, TreeDeciduous } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, TreeDeciduous } from 'lucide-react';
 
 const SocialButton = ({ href, icon: Icon }: { href: string, icon: any }) => (
   <a 
@@ -101,8 +101,7 @@ export const Footer: React.FC = () => {
             <div className="flex gap-3">
               <SocialButton href="https://www.instagram.com/_logicbox_?igsh=MW5waXNqODlkaWMyeg==" icon={Instagram} />
               <SocialButton href="https://youtu.be/4G9yKXwDKJk" icon={Youtube} />
-              <SocialButton href="#" icon={Linkedin} />
-              <SocialButton href="#" icon={Twitter} />
+              <SocialButton href="https://www.linkedin.com/company/lenient-tree/posts/?feedView=all" icon={Linkedin} />
             </div>
           </div>
 
