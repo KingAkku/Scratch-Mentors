@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* Placeholder for Lenient Tree Logo - User will add image later */}
+          {/* Lenient Tree Logo Area */}
           <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-green-600 text-white`}>
              <TreeDeciduous size={24} />
           </div>

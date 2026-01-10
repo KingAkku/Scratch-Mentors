@@ -14,25 +14,28 @@ const SocialButton = ({ href, icon: Icon }: { href: string, icon: any }) => (
 );
 
 export const Footer: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const calculateTimeLeft = () => {
+    // Target date: End of Feb 17, 2025 (Submission deadline)
+    const targetDate = new Date('2025-02-17T23:59:59');
+    const now = new Date();
+    const difference = targetDate.getTime() - now.getTime();
+
+    if (difference > 0) {
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((difference % (1000 * 60)) / 1000)
+      };
+    }
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    // Target date: Feb 17, 2025 (Assuming next Feb 17 based on context, adjusted if current date is past)
-    const targetDate = new Date('2025-02-17T00:00:00');
-    
     const interval = setInterval(() => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-        setTimeLeft({ days, hours, minutes, seconds });
-      } else {
-        clearInterval(interval);
-      }
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -64,7 +67,7 @@ export const Footer: React.FC = () => {
 
           {/* Center Counter */}
           <div className="flex flex-col items-center">
-             <p className="font-mono text-xs text-purple-600 uppercase tracking-[0.2em] mb-4 font-bold">Tournament Begins In</p>
+             <p className="font-mono text-xs text-purple-600 uppercase tracking-[0.2em] mb-4 font-bold">Submission Deadline In</p>
              <div className="flex gap-4">
                 {[
                   { label: 'Days', value: timeLeft.days },
@@ -89,7 +92,7 @@ export const Footer: React.FC = () => {
             <p className="font-mono text-xs text-gray-400 uppercase tracking-widest mb-4">Connect With Us</p>
             <div className="flex gap-3">
               <SocialButton href="https://www.instagram.com/_logicbox_?igsh=MW5waXNqODlkaWMyeg==" icon={Instagram} />
-              <SocialButton href="https://youtu.be/4G9yKXwDKJ" icon={Youtube} />
+              <SocialButton href="https://youtu.be/4G9yKXwDKJk" icon={Youtube} />
               <SocialButton href="#" icon={Linkedin} />
               <SocialButton href="#" icon={Twitter} />
             </div>

@@ -61,7 +61,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </h1>
         <div className="flex items-center gap-2 md:gap-4 ml-[5vw] md:ml-[10vw]">
            <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-purple-600 block"></span>
-           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 pr-2 md:pr-4">
+           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 pr-4 md:pr-8">
              CROWN
            </h1>
         </div>
@@ -145,12 +145,12 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </div>
       </div>
 
-      {/* Vibrant CTA Button (Desktop Only) */}
+      {/* Vibrant CTA Button (Desktop Only) - Color Inverted */}
       <div className="hidden md:block absolute bottom-12 right-12 z-30">
          <Button 
             onClick={onRegister}
             size="xl" 
-            className="rounded-none border-2 border-black bg-white text-black hover:bg-black hover:text-white font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1"
+            className="rounded-none border-2 border-black bg-black text-white hover:bg-white hover:text-black font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1"
          >
             Register Now
          </Button>
