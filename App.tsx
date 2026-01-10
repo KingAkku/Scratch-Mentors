@@ -46,10 +46,9 @@ function App() {
               </p>
               <button 
                 onClick={openRegister}
-                className="group relative inline-flex items-center justify-center px-12 py-5 text-xl font-mono font-bold text-black transition-all duration-200 bg-white hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-400 focus:ring-offset-gray-900"
+                className="bg-black text-white px-12 py-5 text-xl font-mono font-bold hover:bg-white hover:text-black hover:scale-105 transition-all shadow-2xl uppercase border-2 border-transparent hover:border-black"
               >
-                <span className="absolute inset-0 w-full h-full -mt-1 -ml-1 transition-all duration-200 ease-out bg-purple-600 rounded-none group-hover:mt-0 group-hover:ml-0"></span>
-                <span className="relative">[ Execute_Registration ]</span>
+                [Execute_Registration]
               </button>
             </div>
           </section>
