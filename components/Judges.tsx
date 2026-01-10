@@ -40,9 +40,6 @@ const JudgeCard = ({ judge }: { judge: typeof JUDGES[0] }) => {
       {/* Main Card Container */}
       <div className="relative h-full bg-white border border-gray-100 shadow-md rounded-xl overflow-hidden flex flex-col p-6 transition-transform duration-300 group-hover:-translate-y-2">
         
-        {/* Scanner Effect Line */}
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-purple-500 shadow-[0_0_10px_#7c3aed] transform -translate-y-full group-hover:translate-y-[400px] transition-transform duration-1000 ease-linear z-20 opacity-30"></div>
-
         {/* Header: Tech Decoration */}
         <div className="flex justify-between items-center mb-6 opacity-60 font-mono text-[10px] tracking-widest text-purple-600">
            <span>ID: 00{judge.id}</span>
