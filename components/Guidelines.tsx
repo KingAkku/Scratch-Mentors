@@ -46,19 +46,19 @@ export const Guidelines: React.FC = () => {
   ];
 
   return (
-    <section id="guidelines" ref={sectionRef} className="py-12 bg-[#050014] border-t border-white/5">
+    <section id="guidelines" ref={sectionRef} className="py-12 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
           <div className="reveal-on-scroll">
-            <p className="font-mono text-cyan-400 text-sm mb-2">03 // PROTOCOLS</p>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-              System <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">Rules</span>
+            <p className="font-mono text-purple-600 text-sm mb-2">03 // PROTOCOLS</p>
+            <h2 className="text-4xl md:text-6xl font-black text-black mb-4">
+              System <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Rules</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-6 mb-8"></div>
             
-            <div className="font-mono text-sm text-gray-400 border-l-2 border-[#7c3aed] pl-4 py-2 bg-purple-900/10">
-              <p className="text-white font-bold mb-1">PRO_TIP:</p>
+            <div className="font-mono text-sm text-gray-600 border-l-2 border-purple-500 pl-4 py-2 bg-purple-50">
+              <p className="text-black font-bold mb-1">PRO_TIP:</p>
               <p>Clean code structure increases judging probability by 40%.</p>
             </div>
           </div>
@@ -67,15 +67,15 @@ export const Guidelines: React.FC = () => {
             {rules.map((rule, idx) => (
               <div 
                 key={idx} 
-                className="bg-white/5 border border-white/10 p-6 flex items-start gap-4 hover:bg-white/10 transition-colors reveal-on-scroll"
+                className="bg-white border border-gray-200 p-6 flex items-start gap-4 hover:shadow-lg transition-shadow reveal-on-scroll rounded-lg"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <div className="text-cyan-400 mt-1">
+                <div className="text-purple-600 mt-1">
                   <rule.icon size={20} />
                 </div>
                 <div>
-                  <h3 className="font-mono text-lg font-bold text-white mb-1">{rule.title}</h3>
-                  <p className="text-gray-400 text-sm">{rule.desc}</p>
+                  <h3 className="font-mono text-lg font-bold text-black mb-1">{rule.title}</h3>
+                  <p className="text-gray-500 text-sm">{rule.desc}</p>
                 </div>
               </div>
             ))}

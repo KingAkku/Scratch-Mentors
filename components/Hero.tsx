@@ -7,7 +7,7 @@ interface HeroProps {
 }
 
 // A pure CSS 3D construction of an abstract "Glass Cat" head
-// THEME: Purple/Cyan Glass
+// THEME: Purple/Cyan Glass - Adjusted for Light Mode visibility
 const GlassCat = () => {
   const size = 160; // Base size for the head
   const earSize = 60;
@@ -32,7 +32,7 @@ const GlassCat = () => {
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(180deg) translateZ(${earSize/2}px)` }} />
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
-          <div className="face w-[60px] h-[60px] bg-purple-600/20" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
+          <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
         </div>
 
         {/* RIGHT EAR */}
@@ -41,11 +41,11 @@ const GlassCat = () => {
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(180deg) translateZ(${earSize/2}px)` }} />
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
-           <div className="face w-[60px] h-[60px] bg-purple-600/20" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
+           <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
         </div>
 
-        {/* Internal Glow Core - Cyan */}
-        <div className="absolute top-0 left-0 w-[60px] h-[60px] bg-cyan-400 rounded-full blur-[50px] opacity-80 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
+        {/* Internal Glow Core - Purple/Cyan Mix */}
+        <div className="absolute top-0 left-0 w-[60px] h-[60px] bg-purple-500 rounded-full blur-[40px] opacity-40 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
       </div>
     </div>
   );
@@ -56,18 +56,18 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-between py-24 md:py-0 md:justify-center bg-transparent">
       
       {/* 3D FLOATING LAYER - Scaled down for mobile */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 mix-blend-overlay opacity-80 pointer-events-none scale-[0.6] md:scale-100">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.6] md:scale-100">
         <GlassCat />
       </div>
 
       {/* TYPOGRAPHY LAYER - Fluid Typography */}
-      <div className="relative z-10 flex flex-col items-center leading-[0.85] text-white select-none pointer-events-none md:pointer-events-auto mt-8 md:mt-0">
-        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] hover:text-purple-200 transition-colors duration-500 drop-shadow-2xl">
+      <div className="relative z-10 flex flex-col items-center leading-[0.85] text-black select-none pointer-events-none md:pointer-events-auto mt-8 md:mt-0">
+        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] hover:text-gray-800 transition-colors duration-500">
           SCRATCH
         </h1>
         <div className="flex items-center gap-2 md:gap-4 ml-[5vw] md:ml-[10vw]">
-           <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-cyan-400 block shadow-[0_0_20px_#22d3ee]"></span>
-           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">
+           <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-purple-600 block"></span>
+           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">
              CROWN
            </h1>
         </div>
@@ -77,15 +77,15 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
       <div className="w-full flex flex-col gap-6 items-center px-4 relative z-30 md:hidden mt-auto">
           
           {/* Mobile Widget */}
-          <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 p-4 w-full max-w-[320px] rounded-lg">
-            <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-2">
-              <span className="font-mono text-[10px] text-cyan-400 font-bold">SYS.STATUS: ONLINE</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div>
+          <div className="bg-white/80 border border-gray-200 backdrop-blur-md p-4 w-full max-w-[320px] rounded-lg shadow-lg">
+            <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
+              <span className="font-mono text-[10px] text-purple-600 font-bold">SYS.STATUS: ONLINE</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
             </div>
-            <div className="space-y-2 font-mono text-xs text-gray-300">
+            <div className="space-y-2 font-mono text-xs text-gray-600">
               <div className="flex justify-between">
                 <span>PRIZE_POOL</span>
-                <span className="font-bold text-white">₹{EVENT_DETAILS.prizePool}</span>
+                <span className="font-bold text-black">₹{EVENT_DETAILS.prizePool}</span>
               </div>
               <div className="flex justify-between">
                 <span>DEADLINE</span>
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
           <Button 
             onClick={onRegister}
             size="lg" 
-            className="w-full max-w-[320px] rounded-lg border-2 border-purple-500 bg-purple-900/80 text-white font-serif italic text-xl shadow-[4px_4px_0px_#7c3aed]"
+            className="w-full max-w-[320px] rounded-lg border-2 border-purple-600 bg-purple-600 text-white font-serif italic text-xl shadow-[4px_4px_0px_#000000]"
          >
             Join The Cult
          </Button>
@@ -108,15 +108,15 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
       
       {/* Tech Spec Sidebar Widget (Desktop Only) */}
       <div className="hidden md:block absolute bottom-12 left-12 z-30">
-        <div className="backdrop-blur-md bg-white/5 border border-purple-500/30 p-6 max-w-[280px]">
-          <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-            <span className="font-mono text-[10px] text-cyan-400 font-bold">SYS.STATUS: ONLINE</span>
-            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+        <div className="bg-white/90 border border-gray-200 backdrop-blur-md p-6 max-w-[280px] shadow-xl rounded-sm">
+          <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-2">
+            <span className="font-mono text-[10px] text-purple-600 font-bold">SYS.STATUS: ONLINE</span>
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
           </div>
-          <div className="space-y-3 font-mono text-xs text-gray-300">
+          <div className="space-y-3 font-mono text-xs text-gray-600">
             <div className="flex justify-between">
               <span>PRIZE_POOL</span>
-              <span className="font-bold text-white">₹{EVENT_DETAILS.prizePool}</span>
+              <span className="font-bold text-black">₹{EVENT_DETAILS.prizePool}</span>
             </div>
             <div className="flex justify-between">
               <span>DEADLINE</span>
@@ -127,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
               <span>OPEN / FREE</span>
             </div>
           </div>
-          <div className="mt-4 pt-2 border-t border-white/10 text-[10px] text-white/40 uppercase tracking-wider">
+          <div className="mt-4 pt-2 border-t border-gray-100 text-[10px] text-gray-400 uppercase tracking-wider">
             LogicBox Tournament v2.0
           </div>
         </div>
@@ -138,14 +138,14 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
          <Button 
             onClick={onRegister}
             size="xl" 
-            className="rounded-none border-2 border-purple-500 bg-purple-900/50 text-white hover:bg-[#7c3aed] hover:border-[#7c3aed] font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#22d3ee] hover:translate-x-1 hover:translate-y-1"
+            className="rounded-none border-2 border-black bg-white text-black hover:bg-black hover:text-white font-serif italic text-2xl px-12 py-6 transition-all duration-300 shadow-[8px_8px_0px_#7c3aed] hover:shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1"
          >
             Join The Cult
          </Button>
       </div>
 
       {/* DECORATIVE ELEMENTS */}
-      <div className="absolute top-0 right-0 p-8 opacity-40 hidden md:block text-purple-400/50">
+      <div className="absolute top-0 right-0 p-8 opacity-40 hidden md:block text-gray-400">
         <div className="font-mono text-xs text-right space-y-1 font-bold">
            <p>LAT: 40.7128° N</p>
            <p>LNG: 74.0060° W</p>
