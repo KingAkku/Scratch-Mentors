@@ -68,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </h1>
         <div className="flex items-center gap-2 md:gap-4 ml-[5vw] md:ml-[10vw]">
            <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-purple-600 block"></span>
-           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">
+           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 pr-2 md:pr-4">
              CROWN
            </h1>
         </div>
