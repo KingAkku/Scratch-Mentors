@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Instagram, Linkedin, Youtube, TreeDeciduous } from 'lucide-react';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const SocialButton = ({ href, icon: Icon }: { href: string, icon: any }) => (
   <a 
@@ -62,10 +62,7 @@ export const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center text-white">
-                   <TreeDeciduous size={24} />
-                </div>
-                <span className="text-2xl font-serif italic font-bold">Lenient<span className="text-green-600">Tree</span></span>
+                <img src="lt.svg" alt="Lenient Tree" className="h-10 w-auto" />
              </div>
              <p className="text-gray-500 text-sm max-w-xs font-medium">
                Empowering students through creativity and code. 

@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
       <div className="relative z-20 mt-12 flex flex-col md:flex-row items-center gap-8 md:gap-16">
           <div className="flex flex-col items-center">
              <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-2">Powered By</p>
-             <span className="font-serif italic font-bold text-xl text-green-700">Lenient Tree</span>
+             <img src="lt.svg" alt="Lenient Tree" className="h-8 w-auto" />
           </div>
           
           <div className="h-8 w-px bg-gray-200 hidden md:block"></div>

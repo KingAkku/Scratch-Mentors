@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, TreeDeciduous } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './Button';
 
 interface HeaderProps {
@@ -31,13 +31,8 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* Lenient Tree Logo Area */}
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-green-600 text-white`}>
-             <TreeDeciduous size={24} />
-          </div>
-          <span className="text-2xl font-bold tracking-tight text-black transition-colors font-serif italic">
-            Lenient<span className="text-green-600">Tree</span>
-          </span>
+          {/* Lenient Tree Logo */}
+          <img src="lt.svg" alt="Lenient Tree" className="h-10 w-auto" />
         </div>
 
         {/* Desktop Nav */}
@@ -51,14 +46,19 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
               {link.name}
             </a>
           ))}
-          <Button 
+          {/* Special Register Button with unique hover effect */}
+          <button 
             onClick={onRegister} 
-            variant={isScrolled ? 'primary' : 'outline'} 
-            size="sm"
-            className={!isScrolled ? "text-purple-600 border-purple-600 hover:bg-purple-50" : ""}
+            className={`
+              px-6 py-2 rounded-full font-bold transition-all duration-300 border-2
+              ${isScrolled 
+                ? 'bg-[#7c3aed] border-[#7c3aed] text-white hover:bg-black hover:border-black hover:shadow-[4px_4px_0px_#7c3aed] hover:-translate-y-1' 
+                : 'bg-[#7c3aed] border-[#7c3aed] text-white hover:bg-white hover:text-[#7c3aed] hover:shadow-[0px_0px_20px_rgba(124,58,237,0.5)]'
+              }
+            `}
           >
             Register Now
-          </Button>
+          </button>
         </div>
 
         {/* Mobile Toggle */}
