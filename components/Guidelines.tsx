@@ -58,11 +58,6 @@ export const Guidelines: React.FC = () => {
                 Rules & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Regulations</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-6 mb-8"></div>
-              
-              <div className="font-mono text-sm text-gray-600 border-l-2 border-purple-500 pl-4 py-2 bg-purple-50 mb-12">
-                <p className="text-black font-bold mb-1">Pro Tip:</p>
-                <p>Clean code structure increases judging probability by 40%.</p>
-              </div>
             </div>
 
             {/* Contact Info Added Here */}
