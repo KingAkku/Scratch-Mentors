@@ -46,16 +46,10 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
               {link.name}
             </a>
           ))}
-          {/* Special Register Button with unique hover effect */}
+          {/* Special Register Button matching the bottom CTA style but purple */}
           <button 
             onClick={onRegister} 
-            className={`
-              px-6 py-2 rounded-full font-bold transition-all duration-300 border-2
-              ${isScrolled 
-                ? 'bg-[#7c3aed] border-[#7c3aed] text-white hover:bg-black hover:border-black hover:shadow-[4px_4px_0px_#7c3aed] hover:-translate-y-1' 
-                : 'bg-[#7c3aed] border-[#7c3aed] text-white hover:bg-white hover:text-[#7c3aed] hover:shadow-[0px_0px_20px_rgba(124,58,237,0.5)]'
-              }
-            `}
+            className="px-6 py-2 rounded-full font-bold font-mono tracking-wider transition-all duration-300 border-2 bg-[#7c3aed] border-[#7c3aed] text-white hover:bg-white hover:text-[#7c3aed] hover:scale-105 hover:shadow-lg uppercase text-sm"
           >
             Register Now
           </button>
