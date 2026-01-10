@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, TreeDeciduous } from 'lucide-react';
 import { Button } from './Button';
 
 interface HeaderProps {
@@ -24,18 +25,18 @@ export const Header: React.FC<HeaderProps> = ({ onRegister }) => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm border-b border-gray-100' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* Logo Box: Vibrant Purple bg */}
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transform -rotate-3 transition-colors bg-[#7c3aed]`}>
-             <span className="font-bold text-xl text-white">L</span>
+          {/* Placeholder for Lenient Tree Logo - User will add image later */}
+          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-green-600 text-white`}>
+             <TreeDeciduous size={24} />
           </div>
-          <span className="text-2xl font-bold tracking-tight text-black transition-colors">
-            Logic<span className="text-purple-600">Box</span>
+          <span className="text-2xl font-bold tracking-tight text-black transition-colors font-serif italic">
+            Lenient<span className="text-green-600">Tree</span>
           </span>
         </div>
 

@@ -74,18 +74,18 @@ export const WinnerCriteria: React.FC = () => {
           {CRITERIA.map((item, idx) => (
             <div 
               key={idx} 
-              className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-purple-200 hover:bg-white transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+              className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group p-8 bg-slate-50 rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl hover:border-purple-300 hover:bg-white transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
             >
               {/* Top accent line */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               
-              <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+              <div className="w-14 h-14 bg-white border border-gray-100 rounded-xl shadow-sm flex items-center justify-center mb-6 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
                 <item.icon size={28} />
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 group-hover:text-purple-700 transition-colors">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed font-medium">
+              <p className="text-sm text-gray-600 group-hover:text-gray-500 leading-relaxed font-medium">
                 {item.desc}
               </p>
             </div>

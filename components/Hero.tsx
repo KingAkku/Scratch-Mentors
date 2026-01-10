@@ -8,7 +8,6 @@ interface HeroProps {
 }
 
 // A pure CSS 3D construction of an abstract "Glass Cat" head
-// THEME: Purple/Cyan Glass - Adjusted for Light Mode visibility
 const GlassCat = () => {
   const size = 160; // Base size for the head
   const earSize = 60;
@@ -16,7 +15,6 @@ const GlassCat = () => {
   return (
     <div className="scene-3d w-[300px] h-[300px] flex items-center justify-center pointer-events-none">
       <div className="cat-assembly relative w-0 h-0">
-        
         {/* HEAD (Main Cube) */}
         <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d' }}>
           <div className="face w-[160px] h-[160px]" style={{ transform: `rotateY(0deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
@@ -26,8 +24,7 @@ const GlassCat = () => {
           <div className="face w-[160px] h-[160px]" style={{ transform: `rotateX(90deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
           <div className="face w-[160px] h-[160px]" style={{ transform: `rotateX(-90deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
         </div>
-
-        {/* LEFT EAR (Pyramid-ish / Small Cube Rotated) */}
+        {/* Ears */}
         <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d', transform: `translate3d(-60px, -110px, 0px) rotateZ(-15deg)` }}>
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(0deg) translateZ(${earSize/2}px)` }} />
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
@@ -35,8 +32,6 @@ const GlassCat = () => {
           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
           <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
         </div>
-
-        {/* RIGHT EAR */}
         <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d', transform: `translate3d(60px, -110px, 0px) rotateZ(15deg)` }}>
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(0deg) translateZ(${earSize/2}px)` }} />
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
@@ -44,8 +39,6 @@ const GlassCat = () => {
            <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
            <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
         </div>
-
-        {/* Internal Glow Core - Purple/Cyan Mix */}
         <div className="absolute top-0 left-0 w-[60px] h-[60px] bg-purple-500 rounded-full blur-[40px] opacity-40 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
       </div>
     </div>
@@ -54,14 +47,14 @@ const GlassCat = () => {
 
 export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-between py-24 md:py-0 md:justify-center bg-transparent">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-24 md:py-0 bg-transparent">
       
-      {/* 3D FLOATING LAYER - Scaled down for mobile */}
+      {/* 3D FLOATING LAYER */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.6] md:scale-100">
         <GlassCat />
       </div>
 
-      {/* TYPOGRAPHY LAYER - Fluid Typography */}
+      {/* TYPOGRAPHY LAYER */}
       <div className="relative z-10 flex flex-col items-center leading-[0.85] text-black select-none pointer-events-none md:pointer-events-auto mt-8 md:mt-0">
         <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] hover:text-gray-800 transition-colors duration-500">
           SCRATCH
@@ -74,9 +67,27 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
         </div>
       </div>
 
-      {/* MOBILE: STACKED LAYOUT BOTTOM */}
-      <div className="w-full flex flex-col gap-6 items-center px-4 relative z-30 md:hidden mt-auto">
+      {/* SPONSORSHIP & ORGANIZATION STRIP */}
+      <div className="relative z-20 mt-12 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+          <div className="flex flex-col items-center">
+             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-2">Powered By</p>
+             <span className="font-serif italic font-bold text-xl text-green-700">Lenient Tree</span>
+          </div>
           
+          <div className="h-8 w-px bg-gray-200 hidden md:block"></div>
+
+          <div className="flex flex-col items-center">
+             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-2">Sponsored By</p>
+             <div className="flex items-center gap-2">
+               <img src="lg.svg" alt="LogicBox Logo" className="h-8 w-auto" />
+               <span className="font-bold text-xl text-gray-800">LogicBox</span>
+             </div>
+          </div>
+      </div>
+
+
+      {/* MOBILE: STACKED LAYOUT BOTTOM */}
+      <div className="w-full flex flex-col gap-6 items-center px-4 relative z-30 md:hidden mt-12">
           {/* Mobile Widget */}
           <div className="bg-white/80 border border-gray-200 backdrop-blur-md p-4 w-full max-w-[320px] rounded-lg shadow-lg">
             <div className="flex justify-between items-center mb-2 border-b border-gray-100 pb-2">
@@ -129,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
             </div>
           </div>
           <div className="mt-4 pt-2 border-t border-gray-100 text-[10px] text-gray-400 uppercase tracking-wider">
-            LogicBox Tournament
+            Lenient Tree Event
           </div>
         </div>
       </div>
@@ -143,14 +154,6 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
          >
             Register Now
          </Button>
-      </div>
-
-      {/* DECORATIVE ELEMENTS */}
-      <div className="absolute top-0 right-0 p-8 opacity-40 hidden md:block text-gray-400">
-        <div className="font-mono text-xs text-right space-y-1 font-bold">
-           <p>LAT: 40.7128° N</p>
-           <p>LNG: 74.0060° W</p>
-        </div>
       </div>
 
     </section>

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Check, ShieldCheck, UserPlus, Code2, AlertTriangle } from 'lucide-react';
+import { Check, ShieldCheck, UserPlus, Code2, AlertTriangle, Phone } from 'lucide-react';
 
 export const Guidelines: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -51,16 +51,31 @@ export const Guidelines: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
-          <div className="reveal-on-scroll">
-            <p className="font-mono text-purple-600 text-sm mb-2">03 // Guidelines</p>
-            <h2 className="text-4xl md:text-6xl font-black text-black mb-4">
-              Rules & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Regulations</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-6 mb-8"></div>
-            
-            <div className="font-mono text-sm text-gray-600 border-l-2 border-purple-500 pl-4 py-2 bg-purple-50">
-              <p className="text-black font-bold mb-1">Pro Tip:</p>
-              <p>Clean code structure increases judging probability by 40%.</p>
+          <div className="reveal-on-scroll flex flex-col h-full justify-between">
+            <div>
+              <p className="font-mono text-purple-600 text-sm mb-2">03 // Guidelines</p>
+              <h2 className="text-4xl md:text-6xl font-black text-black mb-4">
+                Rules & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Regulations</span>
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-6 mb-8"></div>
+              
+              <div className="font-mono text-sm text-gray-600 border-l-2 border-purple-500 pl-4 py-2 bg-purple-50 mb-12">
+                <p className="text-black font-bold mb-1">Pro Tip:</p>
+                <p>Clean code structure increases judging probability by 40%.</p>
+              </div>
+            </div>
+
+            {/* Contact Info Added Here */}
+            <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-100">
+               <div className="flex items-center gap-3 text-gray-800">
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 text-purple-600 shadow-sm">
+                    <Phone size={18} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono text-gray-500 uppercase tracking-widest">For Enquiries</p>
+                    <p className="text-xl font-bold font-mono tracking-tight">+91 7559999091</p>
+                  </div>
+               </div>
             </div>
           </div>
 
