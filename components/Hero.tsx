@@ -7,40 +7,59 @@ interface HeroProps {
   onRegister: () => void;
 }
 
-// A pure CSS 3D construction of an abstract "Glass Cat" head
-const GlassCat = () => {
-  const size = 160; // Base size for the head
-  const earSize = 60;
-
+// Reusable 3D Cube Component for perfect alignment
+const Cube = ({ w, h, d, x, y, z, children, className = "" }: { w: number, h: number, d: number, x: number, y: number, z: number, children?: React.ReactNode, className?: string }) => {
   return (
-    <div className="scene-3d w-[300px] h-[300px] flex items-center justify-center pointer-events-none">
+    <div className={`absolute ${className}`} style={{ 
+      width: w, height: h, 
+      left: -w/2, top: -h/2, // Center the pivot point
+      transformStyle: 'preserve-3d', 
+      transform: `translate3d(${x}px, ${y}px, ${z}px)` 
+    }}>
+      {/* Front */}
+      <div className="face flex items-center justify-center overflow-hidden" style={{ width: w, height: h, transform: `rotateY(0deg) translateZ(${d/2}px)` }}>
+        {children}
+      </div>
+      {/* Back */}
+      <div className="face" style={{ width: w, height: h, transform: `rotateY(180deg) translateZ(${d/2}px)` }} />
+      {/* Right */}
+      <div className="face" style={{ width: d, height: h, transform: `rotateY(90deg) translateZ(${w/2}px)`, left: (w-d)/2 }} />
+      {/* Left */}
+      <div className="face" style={{ width: d, height: h, transform: `rotateY(-90deg) translateZ(${w/2}px)`, left: (w-d)/2 }} />
+      {/* Top */}
+      <div className="face" style={{ width: w, height: d, transform: `rotateX(90deg) translateZ(${h/2}px)`, top: (h-d)/2 }} />
+      {/* Bottom */}
+      <div className="face" style={{ width: w, height: d, transform: `rotateX(-90deg) translateZ(${h/2}px)`, top: (h-d)/2 }} />
+    </div>
+  );
+};
+
+const GlassCat = () => {
+  return (
+    <div className="scene-3d w-[400px] h-[400px] flex items-center justify-center pointer-events-none">
       <div className="cat-assembly relative w-0 h-0">
-        {/* HEAD (Main Cube) */}
-        <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d' }}>
-          <div className="face w-[160px] h-[160px]" style={{ transform: `rotateY(0deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
-          <div className="face w-[160px] h-[160px]" style={{ transform: `rotateY(180deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
-          <div className="face w-[160px] h-[160px]" style={{ transform: `rotateY(90deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
-          <div className="face w-[160px] h-[160px]" style={{ transform: `rotateY(-90deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
-          <div className="face w-[160px] h-[160px]" style={{ transform: `rotateX(90deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
-          <div className="face w-[160px] h-[160px]" style={{ transform: `rotateX(-90deg) translateZ(${size/2}px) translateX(-${size/2}px) translateY(-${size/2}px)` }} />
-        </div>
-        {/* Ears */}
-        <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d', transform: `translate3d(-60px, -110px, 0px) rotateZ(-15deg)` }}>
-          <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(0deg) translateZ(${earSize/2}px)` }} />
-          <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
-          <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(180deg) translateZ(${earSize/2}px)` }} />
-          <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
-          <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
-        </div>
-        {/* Ears 2 */}
-        <div className="absolute top-0 left-0" style={{ transformStyle: 'preserve-3d', transform: `translate3d(60px, -110px, 0px) rotateZ(15deg)` }}>
-           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(0deg) translateZ(${earSize/2}px)` }} />
-           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(90deg) translateZ(${earSize/2}px)` }} />
-           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(180deg) translateZ(${earSize/2}px)` }} />
-           <div className="face w-[60px] h-[60px]" style={{ transform: `rotateY(-90deg) translateZ(${earSize/2}px)` }} />
-           <div className="face w-[60px] h-[60px] bg-purple-600/10" style={{ transform: `rotateX(90deg) translateZ(${earSize/2}px)` }} />
-        </div>
-        <div className="absolute top-0 left-0 w-[60px] h-[60px] bg-purple-500 rounded-full blur-[40px] opacity-40 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
+        
+        {/* MAIN HEAD */}
+        <Cube w={160} h={140} d={140} x={0} y={0} z={0}>
+            {/* Eyes container on the main face */}
+            <div className="flex gap-10 mb-8 relative z-10">
+                <div className="w-5 h-8 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7] animate-pulse"></div>
+                <div className="w-5 h-8 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7] animate-pulse"></div>
+            </div>
+        </Cube>
+
+        {/* EARS - Positioned on top corners */}
+        <Cube w={50} h={50} d={80} x={-55} y={-95} z={0} />
+        <Cube w={50} h={50} d={80} x={55} y={-95} z={0} />
+
+        {/* MUZZLE - Protruding from face */}
+        <Cube w={60} h={30} d={20} x={0} y={35} z={80}>
+             {/* Nose */}
+             <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-pink-500/80 drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]"></div>
+        </Cube>
+        
+        {/* INNER GLOW CORE */}
+        <div className="absolute top-0 left-0 w-[120px] h-[120px] bg-purple-500 rounded-full blur-[80px] opacity-30 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
       </div>
     </div>
   );
@@ -51,18 +70,18 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-24 md:py-0 bg-transparent">
       
       {/* 3D FLOATING LAYER */}
-      <div className="absolute top-[35%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.55] md:scale-100 transition-all duration-500">
+      <div className="absolute top-[35%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.6] md:scale-100 transition-all duration-500">
         <GlassCat />
       </div>
 
       {/* TYPOGRAPHY LAYER */}
-      <div className="relative z-10 flex flex-col items-center leading-[0.85] text-black select-none pointer-events-none md:pointer-events-auto mt-8 md:mt-0">
-        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] text-gray-800">
+      <div className="relative z-10 flex flex-col items-center leading-[0.85] text-black select-none pointer-events-none md:pointer-events-auto mt-12 md:mt-0">
+        <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] text-gray-800 mix-blend-multiply">
           SCRATCH
         </h1>
         <div className="flex items-center gap-2 md:gap-4 ml-[5vw] md:ml-[10vw]">
-           <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-purple-600 block"></span>
-           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 pr-4 md:pr-8">
+           <span className="h-[2px] md:h-[4px] w-[15vw] md:w-[10vw] bg-purple-600 block shadow-[0_0_10px_rgba(124,58,237,0.5)]"></span>
+           <h1 className="font-serif text-[18vw] md:text-[16vw] font-black tracking-[-0.08em] italic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500 pr-4 md:pr-8 drop-shadow-sm">
              CROWN
            </h1>
         </div>
