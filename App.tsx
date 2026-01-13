@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Prizes } from './components/Prizes';
@@ -9,14 +9,12 @@ import { Guidelines } from './components/Guidelines';
 import { WinnerCriteria } from './components/WinnerCriteria';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
-import { RegisterModal } from './components/RegisterModal';
 import { ClickScratch } from './components/ClickScratch';
 
 function App() {
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-
-  const openRegister = () => setIsRegisterOpen(true);
-  const closeRegister = () => setIsRegisterOpen(false);
+  const handleRegister = () => {
+    window.open('https://forms.gle/eHHgBLea2K3qhhXAA', '_blank');
+  };
 
   return (
     <div className="min-h-screen relative">
@@ -29,10 +27,10 @@ function App() {
       />
 
       <div className="relative z-10">
-        <Header onRegister={openRegister} />
+        <Header onRegister={handleRegister} />
         
         <main>
-          <Hero onRegister={openRegister} />
+          <Hero onRegister={handleRegister} />
           <Prizes />
           <Judges />
           <Timeline />
@@ -48,7 +46,7 @@ function App() {
                 SYSTEM READY?
               </h2>
               <button 
-                onClick={openRegister}
+                onClick={handleRegister}
                 className="bg-black text-white px-12 py-5 text-xl font-mono font-bold hover:bg-white hover:text-black hover:scale-105 transition-all shadow-2xl uppercase border-2 border-transparent hover:border-black"
               >
                 [ Register Now ]
@@ -58,8 +56,6 @@ function App() {
         </main>
         <Footer />
       </div>
-      
-      <RegisterModal isOpen={isRegisterOpen} onClose={closeRegister} />
     </div>
   );
 }

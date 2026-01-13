@@ -7,29 +7,54 @@ interface HeroProps {
   onRegister: () => void;
 }
 
-// Reusable 3D Cube Component for perfect alignment
-const Cube = ({ w, h, d, x, y, z, children, className = "" }: { w: number, h: number, d: number, x: number, y: number, z: number, children?: React.ReactNode, className?: string }) => {
+// Reusable 3D Cube Component with customizable appearance
+const Cube = ({ 
+  w, h, d, x, y, z, 
+  children, 
+  className = "",
+  faceColor = "rgba(124, 58, 237, 0.1)",
+  borderColor = "rgba(124, 58, 237, 0.3)"
+}: { 
+  w: number, h: number, d: number, x: number, y: number, z: number, 
+  children?: React.ReactNode, 
+  className?: string,
+  faceColor?: string,
+  borderColor?: string
+}) => {
+  
+  const faceStyle = {
+    background: faceColor,
+    border: `1px solid ${borderColor}`,
+    backdropFilter: 'blur(2px)',
+    position: 'absolute' as const,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backfaceVisibility: 'visible' as const,
+  };
+
   return (
     <div className={`absolute ${className}`} style={{ 
       width: w, height: h, 
-      left: -w/2, top: -h/2, // Center the pivot point
+      left: '50%', top: '50%',
+      marginLeft: -w/2, marginTop: -h/2,
       transformStyle: 'preserve-3d', 
       transform: `translate3d(${x}px, ${y}px, ${z}px)` 
     }}>
       {/* Front */}
-      <div className="face flex items-center justify-center overflow-hidden" style={{ width: w, height: h, transform: `rotateY(0deg) translateZ(${d/2}px)` }}>
+      <div style={{ ...faceStyle, width: w, height: h, transform: `rotateY(0deg) translateZ(${d/2}px)` }}>
         {children}
       </div>
       {/* Back */}
-      <div className="face" style={{ width: w, height: h, transform: `rotateY(180deg) translateZ(${d/2}px)` }} />
+      <div style={{ ...faceStyle, width: w, height: h, transform: `rotateY(180deg) translateZ(${d/2}px)` }} />
       {/* Right */}
-      <div className="face" style={{ width: d, height: h, transform: `rotateY(90deg) translateZ(${w/2}px)`, left: (w-d)/2 }} />
+      <div style={{ ...faceStyle, width: d, height: h, transform: `rotateY(90deg) translateZ(${w/2}px)` }} />
       {/* Left */}
-      <div className="face" style={{ width: d, height: h, transform: `rotateY(-90deg) translateZ(${w/2}px)`, left: (w-d)/2 }} />
+      <div style={{ ...faceStyle, width: d, height: h, transform: `rotateY(-90deg) translateZ(${w/2}px)` }} />
       {/* Top */}
-      <div className="face" style={{ width: w, height: d, transform: `rotateX(90deg) translateZ(${h/2}px)`, top: (h-d)/2 }} />
+      <div style={{ ...faceStyle, width: w, height: d, transform: `rotateX(90deg) translateZ(${h/2}px)` }} />
       {/* Bottom */}
-      <div className="face" style={{ width: w, height: d, transform: `rotateX(-90deg) translateZ(${h/2}px)`, top: (h-d)/2 }} />
+      <div style={{ ...faceStyle, width: w, height: d, transform: `rotateX(-90deg) translateZ(${h/2}px)` }} />
     </div>
   );
 };
@@ -39,27 +64,48 @@ const GlassCat = () => {
     <div className="scene-3d w-[400px] h-[400px] flex items-center justify-center pointer-events-none">
       <div className="cat-assembly relative w-0 h-0">
         
-        {/* MAIN HEAD */}
-        <Cube w={160} h={140} d={140} x={0} y={0} z={0}>
-            {/* Eyes container on the main face */}
-            <div className="flex gap-10 mb-8 relative z-10">
-                <div className="w-5 h-8 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7] animate-pulse"></div>
-                <div className="w-5 h-8 bg-purple-500 rounded-full shadow-[0_0_15px_#a855f7] animate-pulse"></div>
+        {/* HEAD (Base Block) */}
+        <Cube w={140} h={120} d={120} x={0} y={0} z={0}>
+            {/* Face details overlay on the front face */}
+            <div className="w-full h-full relative">
+                {/* Eyes */}
+                <div className="absolute top-[35px] left-[25px] w-[24px] h-[24px] bg-purple-600 rounded-full shadow-[0_0_15px_#7c3aed] animate-pulse">
+                    <div className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full opacity-70"></div>
+                </div>
+                <div className="absolute top-[35px] right-[25px] w-[24px] h-[24px] bg-purple-600 rounded-full shadow-[0_0_15px_#7c3aed] animate-pulse">
+                    <div className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full opacity-70"></div>
+                </div>
+                
+                {/* Blush */}
+                <div className="absolute top-[65px] left-[15px] w-[20px] h-[10px] bg-pink-400/20 rounded-full blur-sm"></div>
+                <div className="absolute top-[65px] right-[15px] w-[20px] h-[10px] bg-pink-400/20 rounded-full blur-sm"></div>
             </div>
         </Cube>
 
-        {/* EARS - Positioned on top corners */}
-        <Cube w={50} h={50} d={80} x={-55} y={-95} z={0} />
-        <Cube w={50} h={50} d={80} x={55} y={-95} z={0} />
+        {/* EARS (Smaller blocks sitting on top) */}
+        {/* Left Ear - Offset to corner */}
+        <Cube w={40} h={40} d={40} x={-50} y={-80} z={0} />
+        {/* Right Ear */}
+        <Cube w={40} h={40} d={40} x={50} y={-80} z={0} />
 
-        {/* MUZZLE - Protruding from face */}
-        <Cube w={60} h={30} d={20} x={0} y={35} z={80}>
-             {/* Nose */}
-             <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-pink-500/80 drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]"></div>
+        {/* SNOUT (Sticking out from face) */}
+        <Cube w={50} h={30} d={20} x={0} y={20} z={70} faceColor="rgba(236, 72, 153, 0.1)" borderColor="rgba(236, 72, 153, 0.3)">
+             <div className="w-full h-full flex items-center justify-center relative">
+                 {/* Nose */}
+                 <div className="w-6 h-3 bg-pink-500 rounded-b-lg shadow-sm"></div>
+                 
+                 {/* Whiskers Left */}
+                 <div className="absolute left-[-20px] top-1/2 w-[25px] h-[1px] bg-purple-400/60 rotate-6 origin-right"></div>
+                 <div className="absolute left-[-20px] top-1/2 w-[25px] h-[1px] bg-purple-400/60 -rotate-6 origin-right mt-2"></div>
+                 
+                 {/* Whiskers Right */}
+                 <div className="absolute right-[-20px] top-1/2 w-[25px] h-[1px] bg-purple-400/60 -rotate-6 origin-left"></div>
+                 <div className="absolute right-[-20px] top-1/2 w-[25px] h-[1px] bg-purple-400/60 rotate-6 origin-left mt-2"></div>
+             </div>
         </Cube>
         
-        {/* INNER GLOW CORE */}
-        <div className="absolute top-0 left-0 w-[120px] h-[120px] bg-purple-500 rounded-full blur-[80px] opacity-30 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
+        {/* Inner Core Glow */}
+        <div className="absolute top-0 left-0 w-[80px] h-[80px] bg-purple-500 rounded-full blur-[60px] opacity-40 animate-pulse" style={{ transform: 'translate(-50%, -50%)' }}></div>
       </div>
     </div>
   );
@@ -70,7 +116,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-24 md:py-0 bg-transparent">
       
       {/* 3D FLOATING LAYER */}
-      <div className="absolute top-[35%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.6] md:scale-100 transition-all duration-500">
+      <div className="absolute top-[35%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 pointer-events-none scale-[0.65] md:scale-100 transition-all duration-500">
         <GlassCat />
       </div>
 
