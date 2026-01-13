@@ -4,24 +4,24 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 
 const FAQS = [
   {
-    question: "Who can participate in the tournament?",
-    answer: "The tournament is open to all students and coding enthusiasts who are interested in Scratch programming. There are no specific age restrictions, but projects are judged on quality and creativity."
+    question: "How does the team structure work?",
+    answer: "This is a mentorship challenge. You register as a 'Mentor' and can tutor/guide up to 3 'Disciples' (Junior Learners). The goal is to help them create amazing Scratch projects."
+  },
+  {
+    question: "Who can be a Mentor?",
+    answer: "Anyone with Scratch knowledge who wants to teach! Whether you're a senior student, a coding enthusiast, or a budding educator."
   },
   {
     question: "Is there a registration fee?",
-    answer: "No, participation in the LogicBox Scratch Tournament is completely free of charge."
+    answer: "No, participation in the LogicBox Scratch Crown is completely free of charge for both Mentors and Disciples."
   },
   {
     question: "What software do I need?",
-    answer: "You will need a computer with an internet connection to access the online Scratch 3.0 editor. No paid software is required."
+    answer: "You and your disciples will need a computer with an internet connection to access the online Scratch 3.0 editor."
   },
   {
-    question: "How do I submit my project?",
-    answer: "Once you register, you will receive an email with a submission link. You need to provide the public link to your Scratch project before the deadline."
-  },
-  {
-    question: "Can I participate as a team?",
-    answer: "Currently, this tournament is designed for individual participants to showcase their personal skills and mentoring abilities."
+    question: "How are winners chosen?",
+    answer: "We judge based on the quality of your disciples' projects AND your effectiveness as a mentor (clarity, guidance, and impact)."
   }
 ];
 

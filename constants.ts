@@ -1,3 +1,4 @@
+
 import { Calendar, Award, Code, Gift } from 'lucide-react';
 
 export const EVENT_DETAILS = {
@@ -10,23 +11,23 @@ export const EVENT_DETAILS = {
 
 export const FEATURES = [
   {
+    title: "Be a Mentor",
+    description: "You (the Mentor) guide up to 3 disciples (Junior Learners). Teach, lead, and win together.",
+    icon: Award,
+  },
+  {
     title: "Huge Prize Pool",
-    description: `Compete for a share of the ${EVENT_DETAILS.prizePool} prize pool. Show off your creativity!`,
+    description: `Compete for a share of the ${EVENT_DETAILS.prizePool} prize pool for the best Mentor-Disciple teams.`,
     icon: Gift,
   },
   {
     title: "Career Launchpad",
-    description: `Top winners secure a prestigious 3-Month Internship at ${EVENT_DETAILS.companyName}.`,
-    icon: Award,
-  },
-  {
-    title: "Free for All",
-    description: "No entry fees. Just bring your logic, creativity, and passion for coding.",
+    description: `Top Mentors secure a prestigious 3-Month Internship at ${EVENT_DETAILS.companyName}.`,
     icon: Code,
   },
   {
     title: "Fast Track",
-    description: "Short timeline. High intensity. Submit by Feb 17, Results on Feb 21.",
+    description: "Submit your team's best work by Feb 17. Results announced on Feb 21.",
     icon: Calendar,
   },
 ];
@@ -34,22 +35,22 @@ export const FEATURES = [
 export const TIMELINE = [
   {
     date: "Now",
-    title: "Registration Opens",
-    desc: "Sign up for free and join the community."
+    title: "Mentors Register",
+    desc: "Sign up as a Mentor and form your squad."
   },
   {
     date: "Feb 17",
-    title: "Submission Deadline",
-    desc: "Submit your final Scratch project link."
+    title: "Project Submission",
+    desc: "Mentors submit the final Scratch projects of their disciples."
   },
   {
     date: "Feb 18-20",
-    title: "Judging Phase",
-    desc: "Our experts review code quality and creativity."
+    title: "Evaluation",
+    desc: "Judges assess mentoring quality and project creativity."
   },
   {
     date: "Feb 21",
-    title: "Winners Announced",
-    desc: "Live reveal of the champions and interns."
+    title: "Crown Ceremony",
+    desc: "Winners and Internships announced live."
   }
 ];

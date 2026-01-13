@@ -169,7 +169,7 @@ export const Prizes: React.FC = () => {
                  <span className="font-mono text-[10px] md:text-xs text-blue-600">Runners Up</span>
                </div>
                <h3 className="text-xl md:text-2xl font-bold mb-2 text-black">Runners Up</h3>
-               <p className="font-mono text-xs md:text-sm text-gray-600">Exclusive Swag + Mentorship Sessions</p>
+               <p className="font-mono text-xs md:text-sm text-gray-600">Winners get upto Rs. 3000 for 10 teams.</p>
             </div>
 
           </div>

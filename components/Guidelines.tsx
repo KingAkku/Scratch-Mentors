@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Check, ShieldCheck, UserPlus, Code2, AlertTriangle, Phone } from 'lucide-react';
+import { ShieldCheck, UserPlus, Code2, AlertTriangle, Phone } from 'lucide-react';
 
 export const Guidelines: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -25,18 +25,18 @@ export const Guidelines: React.FC = () => {
 
   const rules = [
     {
-      title: "Eligibility: Open",
-      desc: "No entry fees. Global access granted to all participants.",
+      title: "Team Structure",
+      desc: "1 Mentor + up to 3 Disciples (Juniors). Be the guide they need.",
       icon: UserPlus
     },
     {
       title: "Platform: Scratch 3.0",
-      desc: "Mandatory platform. Remixing permitted with proper attribution.",
+      desc: "Projects must be built on Scratch. Remixing allowed with attribution.",
       icon: Code2
     },
     {
-      title: "Originality Check",
-      desc: "Plagiarism detection active. Zero tolerance for code theft.",
+      title: "Mentorship Focus",
+      desc: "Mentors are judged on their ability to teach and their students' output.",
       icon: ShieldCheck
     },
     {
