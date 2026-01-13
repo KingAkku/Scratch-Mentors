@@ -113,7 +113,7 @@ export const Timeline: React.FC = () => {
           <span className="inline-block py-1 px-3 border border-purple-200 rounded-full bg-purple-50 text-purple-600 font-mono text-xs mb-4 tracking-widest">
             Tournament Schedule
           </span>
-          <h2 className="text-5xl md:text-7xl font-black text-black uppercase tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter">
             Event <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Timeline</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>

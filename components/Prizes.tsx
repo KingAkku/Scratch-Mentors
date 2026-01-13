@@ -162,13 +162,13 @@ export const Prizes: React.FC = () => {
                <p className="font-mono text-xs md:text-sm text-gray-600">@ LogicBox Studio // Full Stack Dev</p>
             </div>
 
-            {/* Runners Up Card */}
+            {/* Exclusive Prizes Card (Renamed from Runners Up) */}
             <div className="bg-white border border-gray-200 p-6 md:p-8 backdrop-blur-md group hover:shadow-xl hover:border-blue-200 transition-all duration-300 rounded-lg shadow-sm">
                <div className="flex justify-between items-start mb-4">
                  <Award size={28} className="text-blue-500" />
-                 <span className="font-mono text-[10px] md:text-xs text-blue-600">Runners Up</span>
+                 <span className="font-mono text-[10px] md:text-xs text-blue-600">Exclusive Prizes</span>
                </div>
-               <h3 className="text-xl md:text-2xl font-bold mb-2 text-black">Runners Up</h3>
+               <h3 className="text-xl md:text-2xl font-bold mb-2 text-black">Exclusive Prizes</h3>
                <p className="font-mono text-xs md:text-sm text-gray-600">Winners get upto Rs. 3000 for 10 teams.</p>
             </div>
 

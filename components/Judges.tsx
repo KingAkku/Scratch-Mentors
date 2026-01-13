@@ -131,7 +131,7 @@ export const Judges: React.FC = () => {
           <span className="font-mono text-purple-600 text-xs tracking-[0.3em] uppercase mb-3 block">
             Panel of Judges
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter">
             The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500">Judges</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mt-6"></div>

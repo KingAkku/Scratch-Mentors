@@ -64,7 +64,7 @@ export const WinnerCriteria: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
           <p className="font-mono text-purple-600 text-sm mb-2 uppercase tracking-widest">Assessment</p>
-          <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tight mb-4">
+          <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter mb-4">
             Winner <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Criteria</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto"></div>

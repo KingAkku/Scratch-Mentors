@@ -38,7 +38,7 @@ export const FAQ: React.FC = () => {
           <div className="inline-flex items-center justify-center p-2 bg-purple-50 text-purple-700 rounded-lg mb-4 border border-purple-100">
             <HelpCircle size={20} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-black tracking-tight mb-4">
+          <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter mb-4">
             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Questions</span>
           </h2>
           <p className="text-gray-500 font-mono text-sm">

@@ -54,7 +54,7 @@ export const Guidelines: React.FC = () => {
           <div className="reveal-on-scroll flex flex-col h-full justify-between">
             <div>
               <p className="font-mono text-purple-600 text-sm mb-2">03 // Guidelines</p>
-              <h2 className="text-4xl md:text-6xl font-black text-black mb-4">
+              <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter mb-4">
                 Rules & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500">Regulations</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-6 mb-8"></div>
