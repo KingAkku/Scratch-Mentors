@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { Prizes } from './components/Prizes';
 import { Judges } from './components/Judges';
 import { Timeline } from './components/Timeline';
+import { VideoSection } from './components/VideoSection';
 import { Guidelines } from './components/Guidelines';
 import { WinnerCriteria } from './components/WinnerCriteria';
 import { FAQ } from './components/FAQ';
@@ -34,6 +35,7 @@ function App() {
           <Prizes />
           <Judges />
           <Timeline />
+          <VideoSection />
           <Guidelines />
           <WinnerCriteria />
           <FAQ />

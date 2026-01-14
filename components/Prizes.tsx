@@ -2,17 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Briefcase, ChevronRight, Award } from 'lucide-react';
 
-// Colors simulating the bg-gradient-to-r from-purple-600 via-pink-500 to-yellow-500
-const CHAR_SHADOWS = [
-  'rgba(147, 51, 234, 0.8)', // ₹ (Purple-600)
-  'rgba(192, 38, 211, 0.8)', // 3 (Purple/Pink)
-  'rgba(236, 72, 153, 0.8)', // 0 (Pink-500)
-  'rgba(244, 63, 94, 0.8)',  // , (Pink/Red)
-  'rgba(251, 146, 60, 0.8)', // 0 (Orange)
-  'rgba(250, 204, 21, 0.8)', // 0 (Yellow-400)
-  'rgba(234, 179, 8, 0.8)'   // 0 (Yellow-500)
-];
-
 // Data for the 3D fragments.
 const FRAGMENTS = [
   // Text Characters: "₹ 3 0 , 0 0 0"
@@ -66,7 +55,6 @@ export const Prizes: React.FC = () => {
     <section id="prizes" ref={containerRef} className="relative h-[200vh] bg-white z-20 text-black">
       
       {/* Sticky Viewport */}
-      {/* Changed justify-center to justify-start on mobile and added top padding to lift content up */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-start pt-32 md:pt-0 md:justify-center perspective-container">
         
         {/* Background Gradients & Fog */}
@@ -79,7 +67,7 @@ export const Prizes: React.FC = () => {
           }}
         ></div>
 
-        {/* Header - Moved to absolute top to not affect flex flow as much, or keep relative but ensure spacing */}
+        {/* Header */}
         <div 
           className="absolute top-8 md:top-10 left-0 w-full text-center z-30 transition-all duration-300 px-4"
           style={{ opacity: Math.max(0, 1 - progress * 2), transform: `translateY(${-progress * 100}px)` }}
@@ -92,7 +80,6 @@ export const Prizes: React.FC = () => {
         </div>
 
         {/* 3D Anamorphic Scene */}
-        {/* Adjusted transform to push it up slightly more on mobile */}
         <div className="relative z-10 w-full max-w-7xl h-[200px] md:h-[400px] flex items-center justify-center transform scale-[0.4] md:scale-100 origin-center -translate-y-12 md:-translate-y-32" style={{ perspective: '1000px' }}>
           
           <div 
@@ -116,12 +103,6 @@ export const Prizes: React.FC = () => {
             const currentR = item.r * (1 - ease); 
             const opacity = Math.min(1, progress * 3 + 0.1); 
 
-            // Calculate gradient shadow specifically for text items based on index
-            const shadowColor = item.type === 'text' ? CHAR_SHADOWS[idx] : '';
-            const textShadowStyle = isAligned && item.type === 'text' 
-              ? `0 0 20px ${shadowColor}, 0 0 50px ${shadowColor}` 
-              : 'none';
-
             return (
               <div
                 key={idx}
@@ -129,8 +110,7 @@ export const Prizes: React.FC = () => {
                 style={{
                   transform: `translate3d(${currentX}px, ${currentY}px, ${currentZ}px) rotate(${currentR}deg) scale(${item.scale || 1})`,
                   opacity: opacity,
-                  zIndex: item.type === 'text' ? 20 : 10,
-                  textShadow: textShadowStyle
+                  zIndex: item.type === 'text' ? 20 : 10
                 }}
               >
                 {item.type === 'text' ? (
@@ -138,7 +118,6 @@ export const Prizes: React.FC = () => {
                     {item.content}
                   </span>
                 ) : (
-                  // Updated cube color to Yellow/Amber
                   <div className="w-16 h-16 bg-yellow-100 border border-yellow-300 backdrop-blur-sm shadow-md"></div>
                 )}
               </div>
@@ -162,7 +141,7 @@ export const Prizes: React.FC = () => {
                <p className="font-mono text-xs md:text-sm text-gray-600">@ LogicBox Studio // Full Stack Dev</p>
             </div>
 
-            {/* Exclusive Prizes Card (Renamed from Runners Up) */}
+            {/* Exclusive Prizes Card */}
             <div className="bg-white border border-gray-200 p-6 md:p-8 backdrop-blur-md group hover:shadow-xl hover:border-blue-200 transition-all duration-300 rounded-lg shadow-sm">
                <div className="flex justify-between items-start mb-4">
                  <Award size={28} className="text-blue-500" />
