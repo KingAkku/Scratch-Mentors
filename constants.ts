@@ -3,7 +3,7 @@ import { Calendar, Award, Code, Gift } from 'lucide-react';
 
 export const EVENT_DETAILS = {
   prizePool: "30,000",
-  currencySymbol: "", // Leaving blank as per prompt ambiguity, or can be set to $ or ₹
+  currencySymbol: "₹", // Leaving blank as per prompt ambiguity, or can be set to $ or ₹
   companyName: "LogicBox",
   submissionDate: "February 17",
   announcementDate: "February 21",
@@ -34,7 +34,7 @@ export const FEATURES = [
 
 export const TIMELINE = [
   {
-    date: "Now",
+    date: "Jan 17",
     title: "Mentors Register",
     desc: "Sign up as a Mentor and form your squad."
   },
