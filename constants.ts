@@ -12,7 +12,7 @@ export const EVENT_DETAILS = {
 export const FEATURES = [
   {
     title: "Be a Mentor",
-    description: "You (the Mentor) guide up to 3 disciples (Junior Learners). Teach, lead, and win together.",
+    description: "You (the Mentor) guide up to 5 disciples (Junior Learners). Teach, lead, and win together.",
     icon: Award,
   },
   {
