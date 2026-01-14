@@ -33,11 +33,6 @@ export const VideoSection: React.FC = () => {
 
         {/* Bottom Metadata */}
         <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6 text-gray-500 font-mono text-xs uppercase tracking-widest">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-            <span>HD Playback Ready</span>
-          </div>
-          <span className="hidden md:block">|</span>
           <span>Scratch 3.0 Compatible</span>
           <span className="hidden md:block">|</span>
           <span className="text-purple-600 font-bold">LogicBox Production</span>
