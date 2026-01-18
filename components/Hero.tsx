@@ -171,7 +171,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
               </div>
                <div className="flex justify-between">
                 <span>Format</span>
-                <span>Mentor + 5</span>
+                <span>Mentor + 5+</span>
               </div>
             </div>
           </div>
@@ -210,7 +210,7 @@ export const Hero: React.FC<HeroProps> = ({ onRegister }) => {
             </div>
              <div className="flex justify-between text-purple-700">
               <span>Team</span>
-              <span>1 Mentor + 5 Disciples</span>
+              <span>1 Mentor + 5+ Disciples</span>
             </div>
           </div>
           <div className="mt-4 pt-2 border-t border-gray-100 text-[10px] text-gray-400 uppercase tracking-wider">

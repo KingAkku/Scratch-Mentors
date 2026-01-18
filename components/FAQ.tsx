@@ -5,7 +5,7 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 const FAQS = [
   {
     question: "How does the team structure work?",
-    answer: "This is a mentorship challenge. You register as a 'Mentor' and can tutor/guide up to 5 'Disciples' (Junior Learners). The goal is to help them create amazing Scratch projects."
+    answer: "This is a mentorship challenge. You register as a 'Mentor' and can tutor/guide 5+ 'Disciples' (Junior Learners). The goal is to help them create amazing Scratch projects."
   },
   {
     question: "Who can be a Mentor?",
