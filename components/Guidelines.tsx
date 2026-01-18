@@ -26,7 +26,7 @@ export const Guidelines: React.FC = () => {
   const rules = [
     {
       title: "Team Structure",
-      desc: "1 Mentor + 5+ Disciples (Junior Learners). Be the guide they need.",
+      desc: "1 Mentor & 5+ Disciples (Junior Learners). Be the guide they need.",
       icon: UserPlus
     },
     {
